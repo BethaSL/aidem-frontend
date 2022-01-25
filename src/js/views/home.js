@@ -6,7 +6,7 @@ import  Carousel from "react-elastic-carousel";
 import "../../styles/home.css";
 
 export const Home = () => (
-	<div className="">
+	<div className="container">
 		<div className="row">
 			<h1 className="m-3">News</h1>
 

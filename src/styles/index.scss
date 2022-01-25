@@ -1,0 +1,66 @@
+/*Cajas con las cards de cada grupo*/
+.borders{
+    display: flex;
+    overflow-x: scroll;
+    margin-bottom: 50px;
+}
+
+h1{
+    color: red;
+}
+
+/*Cards*/
+.card{
+    min-width: 400px;
+    max-width: 400px;
+    margin: 20px;
+}
+
+.card__button{
+    position: relative;
+    background: white;
+    color: blue;
+}
+
+.card__heart{
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    background: white;
+    color: #ffc107;
+}
+
+li {
+    position: relative;
+}
+
+.trash__icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.character__card{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.character__info{
+    color: red;
+    border-top: 1px solid red;
+    padding-top: 20px;
+}
+
+.fisrt-row{
+    margin-top: 100px;
+}
+
+.char-row{
+    margin-top: 100px;
+}
+
+.homebutton{
+    margin-top: 100px;
+    background: white;
+    color: #ffc107;
+}
