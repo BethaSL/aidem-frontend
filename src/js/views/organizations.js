@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext.js";
-import { Card } from "../component/card.js";
+import { Card } from "../component/Card.js";
+import "../../styles/home.css"
 
 export const Organizations = () => {
     const { store, actions } = useContext(Context);
     return (
-        //Children
         <div className="container">
             <div className="row first-row">
                 <h1>
-                    <strong> Children Organizations </strong>
+                     Children Organizations
                 </h1>
                 <div className="borders"> 
                     <Card/>
@@ -17,7 +17,7 @@ export const Organizations = () => {
             </div>
             <div className="row">
                 <h1>
-                    <strong> Elderly Organizations </strong>
+                    Elderly Organizations
                 </h1>
                 <div className="borders"> 
                     <Card/>
@@ -25,7 +25,7 @@ export const Organizations = () => {
             </div>
             <div className="row">
                 <h1>
-                    <strong> Other Organizations </strong>
+                    Other Organizations
                 </h1>
                 <div className="borders"> 
                     <Card/>
