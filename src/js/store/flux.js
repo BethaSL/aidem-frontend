@@ -11,7 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			//Gets info from de API
 			getData: async endpoint => {
-				try{
+				try {
 					const store = getStore();
 					const response = await fetch(`${store.urlBase}/${endpoint}`);
 					if (response.ok) {
