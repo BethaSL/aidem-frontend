@@ -1,3 +1,94 @@
-/* 
-    General Styles
-*/
+/*Color palette*/
+:root {
+    --color-1: #0a1128;
+    --color-2: #001f54;
+    --color-3: #034078;
+    --color-4: #1282a2;
+    --color-5: #fefcfb;
+}
+
+/*Landing page*/
+/*Navbar*/
+.navbar {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    background: var(--color-1);
+}
+
+.nav-button {
+    color: var(--color-5);
+    background: var(--color-4);
+    padding-bottom: 5px;
+}
+
+h1{
+    color: var(--color-5);
+    background: var(--color-3);
+    padding-bottom: 5px;
+}
+
+.fisrt-row{
+    margin-top: 80px;
+}
+
+.top-row {
+    margin-top: 15px;;
+}
+
+/*Login view*/
+.form-box {
+    justify-content: center;
+    display: flex;
+}
+
+.form-label{
+    float: left;
+    width: 200px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.input-box {
+    margin-bottom: 10px;
+}
+
+.form-button {
+    background: var(--color-4);
+    color: var(--color-5);
+    margin: 5px;
+    font-weight: bold;
+}
+
+/*Organizations view*/
+.borders{
+    display: flex;
+    overflow-x: scroll;
+    margin-bottom: 50px;
+}
+
+/*Cards*/
+.card{
+    min-width: 350px;
+    max-width: 350px;
+    margin: 15px;
+}
+
+.card__button{
+    position: relative;
+    background: white;
+    color: blue;
+}
+
+.card__heart{
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    background: white;
+    color: red;
+}
+
+.children-cards{
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
