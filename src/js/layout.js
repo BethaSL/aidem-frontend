@@ -10,7 +10,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar.js";
 import { Footer } from "./component/footer.js";
 import { Organizations } from "./views/organizations.js";
-import{ Login } from "./views/login.js";
+import{ Login } from "./views/signup.js";
 
 //create your first component
 const Layout = () => {
@@ -30,7 +30,7 @@ const Layout = () => {
 						<Route exact path="/organizations">
 							<Organizations />
 						</Route>
-						<Route exact path="/login">
+						<Route exact path="/signup">
 							<Login />
 						</Route>
 						<Route exact path="/single/:theid">

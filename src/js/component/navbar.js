@@ -10,8 +10,13 @@ export const Navbar = () => {
 			<Link to="/">
 				<img src={Logo} />
 			</Link>
+			
 			<Link to="/login">
-				<button className="nav-button"> Log in / Sign up </button>
+				<button className="nav-button"> Log in </button>
+			</Link>
+
+			<Link to="/signup">
+				<button className="nav-button"> Sign up </button>
 			</Link>
 		</div>
 	);
