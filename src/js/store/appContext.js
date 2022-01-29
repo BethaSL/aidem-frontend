@@ -22,7 +22,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			// state.actions.getData("children");
+			state.actions.getData("organizations");
 			// state.actions.getData("elderly");
 			// state.actions.getData("others");
 			// state.actions.getData("favorites");
