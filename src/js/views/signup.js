@@ -46,7 +46,7 @@ export const Signup = () => {
                             <select className="form-select" aria-label="Default select example" onChange={(e) => { setUsertype(e.target.value) }}>
                                 <option defaultValue={"Select user type"}>Select user type</option>
                                 <option value="organization">Organization</option>
-                                <option value="individual">Aider (inidividual)</option>
+                                <option value="particular">Aider (inidividual)</option>
                                 <option value="business">Aider (business)</option>
                             </select> 
                         </span>

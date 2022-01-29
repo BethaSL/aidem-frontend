@@ -46,7 +46,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			userReg: async userRegister => {
-				console.log(userRegister)
+			
 				const store = getStore();
 				try{
 					let response = await fetch(`${store.urlBase}/signup`, {
@@ -57,7 +57,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(userRegister)
 					});
 					let data = await response.json()
-					console.log(data)
 				}
 				catch (error) {
 					console.log("signup error", error)
