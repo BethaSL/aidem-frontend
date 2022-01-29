@@ -9,7 +9,7 @@ export const Orgs = ({orgname,orgtype,description}) => (
   <div className="card-body">
     <h5 className="card-title">{orgtype}</h5>
     <p className="card-text">{description}</p>
-    <a href="#" class="btn btn-primary btn-sm">Go to Profile</a>
+    <a href="#" className="btn btn-primary btn-sm">Go to Profile</a>
   </div>
 </div>
 	

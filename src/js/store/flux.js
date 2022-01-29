@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			urlBase: "localhost:3000",
+			urlBase: "http://localhost:8080",
 			children: [],
 			elderly: [],
 			others: [],
@@ -45,13 +45,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("signin error",error)
 				}
 			},
-
 			userReg: async userRegister => {
 				console.log(userRegister)
 				const store = getStore();
 				try{
-					let response = await fetch(`${store.urlBase}/sugnup`, {
-						method: "GET",
+					let response = await fetch(`${store.urlBase}/signup`, {
+						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
 						},
@@ -64,6 +63,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("signup error", error)
 				}
 			}
+
+			
 		}
 	};
 };
