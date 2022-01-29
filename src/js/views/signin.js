@@ -28,9 +28,7 @@ export const Signin = () => {
                     </div>
 
                     <div className="d-flex justify-content-center">
-
-                        <button type="button" onClick={submitData} className="form-button" id="singup-button"> Sign in </button>
-
+                        <button type="button" onClick={submitData} className="btn last-row form-button" id="singup-button"> Sign in </button>
                     </div>
                 </form>
             </div>

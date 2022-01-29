@@ -9,17 +9,18 @@ export const Signup = () => {
     const [user_type, setUsertype] = useState("")
 
     const submitData = () => {
-        if (password == authpassword){
+        if (password == authpassword) {
             let userRegister = {
-            email: email,
-            password: password,
-            // username: username,
-            user_type: user_type
+                email: email,
+                password: password,
+                // username: username,
+                user_type: user_type
+            }
+            let response = actions.userReg(userRegister)
         }
-        let response = actions.userReg(userRegister)}
-        else {console.log("Password missmatch", password, authpassword)}        
+        else { console.log("Password missmatch", password, authpassword) }
     }
-   
+
     return (
         <div className="container fisrt-row">
             <h1 className="text-center"> Sign up </h1>
@@ -27,32 +28,29 @@ export const Signup = () => {
                 <form>
                     <div className="top-row">
                         <label className="form-label" htmlFor="input-id" > Email: </label>
-                        <span> <input className="input-box" id="input-id" required placeholder="Email" value={email} onChange={(e) => { setEmail(e.target.value) }}/> </span>
+                        <span> <input className="input-box" id="input-id" required placeholder="Email" value={email} onChange={(e) => { setEmail(e.target.value) }} /> </span>
                     </div>
 
                     <div>
                         <label className="form-label" htmlFor="input-password" > Password: </label>
-                        <span> <input className="input-box" id="input-password" type="password" value={password} required placeholder="Password" onChange={(e) => { setPassword(e.target.value) }}/> </span>
+                        <span> <input className="input-box" id="input-password" type="password" value={password} required placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} /> </span>
                     </div>
 
                     <div>
-                        <label className="form-label" htmlFor="input-password" > Confirm Password: </label>
-                        <span> <input className="input-box" id="input-authpassword" type="password" value={authpassword} required placeholder="Password" onChange={(e) => { setAuthPassword(e.target.value) }} /> </span>
+                        <label className="form-label" htmlFor="input-authpassword" > Confirm Password: </label>
+                        <span> <input className="input-box" id="input-authpassword" type="Confirm password" value={authpassword} required placeholder="Password" onChange={(e) => { setAuthPassword(e.target.value) }} /> </span>
                     </div>
 
-                    <div className="dropdown form-dropdown">
+                    <div className="dropdown form-dropdown last-row">
+                        <label className="form-label" htmlFor="dd-user-type" >User type: </label>
                         <span className="d-flex aligne-content-center">
-                            <label className="form-label" htmlFor="dd-user-type" >User type: </label>
                             <select className="form-select" aria-label="Default select example" onChange={(e) => { setUsertype(e.target.value) }}>
                                 <option defaultValue={"Select user type"}>Select user type</option>
                                 <option value="organization">Organization</option>
                                 <option value="particular">Aider (inidividual)</option>
                                 <option value="business">Aider (business)</option>
-                            </select> 
+                            </select>
                         </span>
-
-
-
                     </div>
 
                     <div className="d-flex justify-content-center">

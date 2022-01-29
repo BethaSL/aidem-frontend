@@ -10,7 +10,7 @@ import { Footer } from "./component/footer.js";
 import { Organizations } from "./views/organizations.js";
 import { Signup } from "./views/signup.js";
 import { Signin } from "./views/signin.js";
-import { Regorg } from "./views/RegOrg";
+import { Orgprofile } from "./views/orgprofile";
 
 //create your first component
 const Layout = () => {
@@ -36,8 +36,8 @@ const Layout = () => {
 						<Route exact path="/signin">
 							<Signin />
 						</Route>
-						<Route exact path="/regorg">
-							<Regorg />
+						<Route exact path="/Orgprofile">
+							<Orgprofile />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
