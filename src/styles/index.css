@@ -13,18 +13,23 @@
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 5px;
-    background: var(--color-1);
+    background: var(--color-5);
 }
 
 .nav-button {
     color: var(--color-5);
-    background: var(--color-4);
     padding-bottom: 5px;
 }
 
 h1{
     color: var(--color-5);
     background: var(--color-3);
+    padding-bottom: 5px;
+}
+
+h3{
+    color: var(--color-1);
+    background: var(--color-4);
     padding-bottom: 5px;
 }
 

@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext.js";
+import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/logo.png";
-import Dropdown from 'react-bootstrap/Dropdown';
 
 export const Navbar = () => {
 	return (
@@ -10,8 +8,13 @@ export const Navbar = () => {
 			<Link to="/">
 				<img src={Logo} />
 			</Link>
-			<Link to="/login">
-				<button className="nav-button"> Log in / Sign up </button>
+			
+			<Link to="/signin">
+				<button type="button" className="nav-button"> Sign in </button>
+			</Link>
+
+			<Link to="/signup">
+				<button type="button" className="nav-button"> Sign up </button>
 			</Link>
 		</div>
 	);

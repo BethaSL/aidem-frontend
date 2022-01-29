@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			urlBase: "localhost:3000/",
+			urlBase: "localhost:3000",
 			children: [],
 			elderly: [],
 			others: [],
@@ -9,20 +9,59 @@ const getState = ({ getStore, getActions, setStore }) => {
 			bankData: []
 		},
 		actions: {
-			//Gets info from de API
-			getData: async endpoint => {
+
+			// //Gets info from de API
+			// getData: async endpoint => {
+			// 	try {
+			// 		const store = getStore();
+			// 		const response = await fetch(`${store.urlBase}/${endpoint}`);
+			// 		if (response.ok) {
+			// 			const data = await response.json();
+			// 			setStore({
+			// 				...store,
+			// 				[endpoint]: data.results
+			// 			});
+			// 		}
+			// 	} catch (error) {
+			// 		console.log("Oh no!");
+			// 	}
+			// },
+
+			userAuth: async loggedUser => {
+				console.log(loggedUser)
+				let store = getStore();
 				try {
-					const store = getStore();
-					const response = await fetch(`${store.urlBase}/${endpoint}`);
-					if (response.ok) {
-						const data = await response.json();
-						setStore({
-							...store,
-							[endpoint]: data.results
-						});
-					}
-				} catch (error) {
-					console.log("Oh no!");
+					let response = await fetch(`${store.urlBase}/signin`, {
+						method: "POST",
+						headers: {
+							 "Content-Type": "application/json",
+							},
+						body: JSON.stringify(loggedUser)
+					});
+					let data = await response.json()
+					console.log(data)
+				}
+				catch (error) {
+					console.log("signin error",error)
+				}
+			},
+
+			userReg: async userRegister => {
+				console.log(userRegister)
+				const store = getStore();
+				try{
+					let response = await fetch(`${store.urlBase}/sugnup`, {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(userRegister)
+					});
+					let data = await response.json()
+					console.log(data)
+				}
+				catch (error) {
+					console.log("signup error", error)
 				}
 			}
 		}
