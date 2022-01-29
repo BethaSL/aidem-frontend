@@ -11,8 +11,8 @@ export const Navbar = () => {
 				<img src={Logo} />
 			</Link>
 			
-			<Link to="/login">
-				<button className="nav-button"> Log in </button>
+			<Link to="/signin">
+				<button className="nav-button"> Sign in </button>
 			</Link>
 
 			<Link to="/signup">

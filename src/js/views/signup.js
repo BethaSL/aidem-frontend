@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Login = () => {
+export const Signup = () => {
     const { store, actions } = useContext(Context);
     return (
         <div className="container fisrt-row">
