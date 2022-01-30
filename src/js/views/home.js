@@ -3,11 +3,10 @@ import { Orgs } from "../component/orgs.js";
 import { Achievements } from "../component/achievements.js";
 import { News } from "../component/news.js";
 import Carousel from "react-elastic-carousel";
-import "../../styles/home.css";
 
 export const Home = () => (
 	<div className="container">
-		<div className="row">
+		<div className="row fisrt-row">
 			<h1 className="m-3">News</h1>
 			<Carousel>
 				<News newstitle='Placeholder 1' newsdesc='Description' />
@@ -16,7 +15,6 @@ export const Home = () => (
 				<News newstitle='Placeholder 4' newsdesc='Description' />
 			</Carousel>
 		</div>
-
 		<div className="row ">
 			<h1 className="m-3">Organizations</h1>
 			<Carousel>
@@ -25,7 +23,6 @@ export const Home = () => (
 				<Orgs orgname='Nombre de Org 3' orgtype='Other' description='Description' />
 			</Carousel>
 		</div>
-
 		<h1 className="m-3">Achievements</h1>
 		<div className="row align-items-center border border-primary p-4 logros">
 			<Achievements data='#' title='Aiders' />
