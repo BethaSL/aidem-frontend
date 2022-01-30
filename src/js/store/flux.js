@@ -27,6 +27,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(error)
 					}
 			},
+			getDataOrgType: async endpoint => {
+				const store = getStore();
+					try {
+						let response = await fetch(`${store.urlBase}/organizations/${endpoint}`, {
+							method: "GET",
+							headers: {
+								 "Content-Type": "application/json",
+								},
+						});
+						console.log(response)
+						let data = await response.json()
+						setStore({...store,[endpoint]: data.results});
+					}
+					catch (error) {
+						console.log(error)
+					}
+			},
 			
 
 			// //Gets info from de API
