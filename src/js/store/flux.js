@@ -36,7 +36,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 								 "Content-Type": "application/json",
 								},
 						});
-						console.log(response)
 						let data = await response.json()
 						setStore({...store,[endpoint]: data.results});
 					}
