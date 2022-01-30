@@ -6,9 +6,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 			elderly: [],
 			others: [],
 			favorites: [],
-			bankData: []
+			bankData: [],
+			organizations: []
+			
 		},
 		actions: {
+			getData: async endpoint => {
+				const store = getStore();
+					try {
+						let response = await fetch(`${store.urlBase}/${endpoint}`, {
+							method: "GET",
+							headers: {
+								 "Content-Type": "application/json",
+								},
+						});
+						let data = await response.json()
+						setStore({...store,[endpoint]: data.results});
+						console.log(organizations)
+					}
+					catch (error) {
+						console.log(error)
+					}
+			},
+
 
 			// //Gets info from de API
 			// getData: async endpoint => {
@@ -47,6 +67,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			userReg: async userRegister => {
+				console.log(userRegister)
 				const store = getStore();
 				try {
 					let response = await fetch(`${store.urlBase}/signup`, {
