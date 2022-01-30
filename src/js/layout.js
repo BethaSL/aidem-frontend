@@ -7,10 +7,13 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.js";
 import { Footer } from "./component/footer.js";
+
 import { Organizations } from "./views/organizations.js";
 import { Signup } from "./views/signup.js";
 import { Signin } from "./views/signin.js";
-import { Regorg } from "./views/RegOrg";
+import { Orgprofile } from "./views/orgprofile";
+import { Aiderprofile } from "./views/aiderprofile";
+import { Aid } from "./views/aid.js";
 
 //create your first component
 const Layout = () => {
@@ -36,8 +39,14 @@ const Layout = () => {
 						<Route exact path="/signin">
 							<Signin />
 						</Route>
-						<Route exact path="/regorg">
-							<Regorg />
+						<Route exact path="/orgprofile">
+							<Orgprofile />
+						</Route>
+						<Route exact path="/aiderprofile">
+							<Aiderprofile />
+						</Route>
+						<Route exact path="/aid">
+							<Aid />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

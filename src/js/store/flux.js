@@ -52,20 +52,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let response = await fetch(`${store.urlBase}/signin`, {
 						method: "POST",
 						headers: {
-							 "Content-Type": "application/json",
-							},
+							"Content-Type": "application/json",
+						},
 						body: JSON.stringify(loggedUser)
 					});
 					let data = await response.json()
 				}
 				catch (error) {
-					console.log("signin error",error)
+					console.log("signin error", error)
 				}
 			},
+
 			userReg: async userRegister => {
 				console.log(userRegister)
 				const store = getStore();
-				try{
+				try {
 					let response = await fetch(`${store.urlBase}/signup`, {
 						method: "POST",
 						headers: {
@@ -79,9 +80,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 				catch (error) {
 					console.log("signup error", error)
 				}
-			}
-
-			
+			},
+			orgProfile: async orgProfile => {
+				const store = getStore();
+				try {
+					let response = await fetch(`${store.urlBase}/orgprofile`, {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(orgProfile)
+					});
+					let data = await response.json()
+					console.log(data)
+				}
+				catch (error) {
+					console.log("signup error", error)
+				}
+			},
+			aiderProfile: async aiderProfile => {
+				const store = getStore();
+				try {
+					let response = await fetch(`${store.urlBase}/aiderprofile`, {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(aiderProfile)
+					});
+					let data = await response.json()
+					console.log(data)
+				}
+				catch (error) {
+					console.log("signup error", error)
+				}
+			},
 		}
 	};
 };
