@@ -18,6 +18,11 @@ export const Navbar = () => {
 					Sign in / Sign up
 				</button>
 				<ul className="dropdown-menu dropdown-menu-end">
+				<li>
+						<Link to="/organizations">
+							<button className="dropdown-item" type="button">Our organizations</button>
+						</Link>
+					</li>
 					<li>
 						<Link to="/signin">
 							<button className="dropdown-item" type="button">Sign in</button>
