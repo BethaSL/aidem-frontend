@@ -56,12 +56,26 @@ h5 {
 }
 
 .navbar-button{
-    color: var(--color-5);
-    background: var(--color-4);
+    color: var(--color-4);    
+    background: unset;
 }
 
 .home-title {
     margin-top: 100px;
+}
+
+/*Footer*/
+.footer {
+    color: var(--color-5);
+    background: var(--color-1);
+    padding: 20px;
+    font-size: small;
+    display: flex;
+}
+
+.footer-link {
+    color: var(--color-5);
+    text-decoration: unset;
 }
 
 /*Form*/

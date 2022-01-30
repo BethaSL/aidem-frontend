@@ -45,24 +45,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 			},
 			
-
-			// //Gets info from de API
-			// getData: async endpoint => {
-			// 	try {
-			// 		const store = getStore();
-			// 		const response = await fetch(`${store.urlBase}/${endpoint}`);
-			// 		if (response.ok) {
-			// 			const data = await response.json();
-			// 			setStore({
-			// 				...store,
-			// 				[endpoint]: data.results
-			// 			});
-			// 		}
-			// 	} catch (error) {
-			// 		console.log("Oh no!");
-			// 	}
-			// },
-
 			userAuth: async loggedUser => {
 				let store = getStore();
 				try {
@@ -98,6 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("signup error", error)
 				}
 			},
+
 			orgProfile: async orgProfile => {
 				const store = getStore();
 				try {
@@ -115,6 +98,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("signup error", error)
 				}
 			},
+			
 			aiderProfile: async aiderProfile => {
 				const store = getStore();
 				try {
