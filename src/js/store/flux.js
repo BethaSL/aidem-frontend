@@ -88,7 +88,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				try {
 					let response = await fetch(`${store.urlBase}/orgprofile`, {
-						method: "GET",
+						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
 						},
@@ -105,7 +105,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				try {
 					let response = await fetch(`${store.urlBase}/aiderprofile`, {
-						method: "GET",
+						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
 						},

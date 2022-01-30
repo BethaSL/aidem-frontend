@@ -28,7 +28,7 @@ export const Aiderprofile = () => {
             </div>
 
             <div className="form-box">
-                <label className="form-label"> Would you like to contacted by the Organizations?: </label>
+                <label className="form-label"> Would you like to be contacted by the Organizations?: </label>
                 <div>
                     <input type="checkbox" className="form-check-input form-checkbox" id="dropdownCheck" />
                     <label className="form-check-label" for="dropdownCheck">

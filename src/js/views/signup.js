@@ -38,7 +38,7 @@ export const Signup = () => {
 
                     <div>
                         <label className="form-label" htmlFor="input-authpassword" > Confirm Password: </label>
-                        <span> <input className="input-box" id="input-authpassword" type="Confirm password" value={authpassword} required placeholder="Password" onChange={(e) => { setAuthPassword(e.target.value) }} /> </span>
+                        <span> <input className="input-box" id="input-authpassword" type="password" value={authpassword} required placeholder=" Confirm Password" onChange={(e) => { setAuthPassword(e.target.value) }} /> </span>
                     </div>
 
                     <div className="dropdown form-dropdown last-row">

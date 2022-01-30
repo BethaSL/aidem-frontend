@@ -15,7 +15,7 @@ export const Navbar = () => {
 
 			<div className="btn-group">
 				<button type="button" className="btn navbar-button dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-					Sign in / Sign up
+					Menu
 				</button>
 				<ul className="dropdown-menu dropdown-menu-end">
 				<li>
