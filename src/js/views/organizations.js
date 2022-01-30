@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext.js";
 import { Card } from "../component/Card.js";
 
-export const Organizations = () => {
+
+export const Organizations = (props) => {
     const { store, actions } = useContext(Context);
     return (
         <div className="container">
@@ -10,8 +11,11 @@ export const Organizations = () => {
                 <h1>
                      Children Organizations
                 </h1>
-                <div className="borders"> 
-                    <Card/>
+                <div className="borders">
+                    {store.organizations.map(item => {
+                        return <Card key={item.id} item={item} endpoint="Children Organizations"/>
+                    })}
+                    
                 </div>
             </div>
             <div className="row elderly-cards">

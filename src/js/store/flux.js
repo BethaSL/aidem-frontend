@@ -22,13 +22,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 						});
 						let data = await response.json()
 						setStore({...store,[endpoint]: data.results});
-						console.log(organizations)
 					}
 					catch (error) {
 						console.log(error)
 					}
 			},
-
+			
 
 			// //Gets info from de API
 			// getData: async endpoint => {
@@ -48,7 +47,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// },
 
 			userAuth: async loggedUser => {
-				console.log(loggedUser)
 				let store = getStore();
 				try {
 					let response = await fetch(`${store.urlBase}/signin`, {
@@ -59,7 +57,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(loggedUser)
 					});
 					let data = await response.json()
-					console.log(data)
 				}
 				catch (error) {
 					console.log("signin error",error)
