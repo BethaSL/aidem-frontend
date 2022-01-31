@@ -9,7 +9,6 @@ export const Footer = () => (
 				<ul className="nav flex-column">
 					<li className="footer-link"> <a href="mailto:contact@aidem.com"> contact@aidem.com </a> </li>
 					<li> 555 555 555 </li>
-					<li className="nav-item"> Caracas, Venezuela </li>
 				</ul>
 			</div>
 
@@ -23,12 +22,7 @@ export const Footer = () => (
 					</li>
 					<li>
 						<Link to="/signup" className="footer-link">
-							Be a member of the Aid'em community
-						</Link>
-					</li>
-					<li>
-						<Link to="/" className="footer-link">
-							Checkout the latest news
+							Become member of the Aid'em community
 						</Link>
 					</li>
 				</ul>
@@ -37,10 +31,9 @@ export const Footer = () => (
 			<div className="col-4 offset-1">
 				<form>
 					<h6><strong>Subscribe to our newsletter</strong></h6>
-					<p>Monthly digest of our top organizations and latest events</p>
 					<div className="d-flex w-100">
-						<input id="newsletter1" type="text" className="form-control" placeholder="Email address" />
-						<button className="btn form-button" type="button">Subscribe</button>
+						<input id="newsletter1" type="text" className="form-control form-control-sm" placeholder="Email address" />
+						<button className="btn btn-sm form-button" type="button">Subscribe</button>
 					</div>
 				</form>
 			</div>

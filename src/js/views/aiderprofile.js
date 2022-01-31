@@ -1,15 +1,18 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
+import { Signup } from "../views/signup.js";
 
 export const Aiderprofile = () => {
     const { Store, actions } = useContext(Context);
     const [fullname, setFullname] = useState("");
     const [phone, setPhone] = useState("");
+    const [contacted, setContacted] = useState(""); //ESTO ES UN INPUT NO UN STRING
 
     const submitData = () => {
         let aiderProfile = {
             fullname: fullname,
-            phone: phone
+            phone: phone,
+            contacted: contacted
         };
         let response = actions.Aiderprofile(aiderProfile);
     }
@@ -17,6 +20,12 @@ export const Aiderprofile = () => {
     return (
         <div className="container fisrt-row">
             <h3 className="text-center"> Aider's Profile  </h3>
+
+            <div className="form-box">
+                <label className="form-label"> Email: </label>
+                <span> <input type="text" className="input-box " placeholder="Full Name" value="email@example.com"/> </span>  
+            </div>
+
             <div className="form-box">
                 <label className="form-label"> Full Name: </label>
                 <span> <input className="input-box" required placeholder="Full Name" value={fullname} onChange={(e) => { setFullname(e.target.value) }} /> </span>
@@ -29,14 +38,15 @@ export const Aiderprofile = () => {
 
             <div className="form-box">
                 <label className="form-label"> Would you like to be contacted by the Organizations?: </label>
-                <div>
-                    <input type="checkbox" className="form-check-input form-checkbox" id="dropdownCheck" />
-                    <label className="form-check-label" for="dropdownCheck">
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="option1" checked onChange={(e) => { setContacted(e.target.value) }} />
+                    <label className="form-check-label">
                         Yes
                     </label>
-                    
-                    <input type="checkbox" className="form-check-input form-checkbox" id="dropdownCheck" />
-                    <label className="form-check-label" for="dropdownCheck">
+                </div>
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="option2" onChange={(e) => { setContacted(e.target.value) }} />
+                    <label className="form-check-label">
                         No
                     </label>
                 </div>

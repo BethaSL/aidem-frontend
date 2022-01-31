@@ -20,7 +20,7 @@ export const Signin = () => {
                 <form>
                     <div className="top-row">
                         <label className="form-label" htmlFor="input-id"> Email: </label>
-                        <span> <input className="input-box" id="input-id" type="email" value={email} required placeholder="Email" onChange={(e) => { setEmail(e.target.value) }} /> </span>
+                        <span> <input className="input-box" id="input-id" type="email" value={email} required placeholder="name@example.com" onChange={(e) => { setEmail(e.target.value) }} /> </span>
                     </div>
                     <div>
                         <label className="form-label" htmlFor="input-password"> Password: </label>
@@ -28,7 +28,7 @@ export const Signin = () => {
                     </div>
 
                     <div className="d-flex justify-content-center">
-                        <button type="button" onClick={submitData} className="btn last-row form-button" id="singup-button"> Sign in </button>
+                        <button type="button" onClick={submitData} className="btn last-row form-button" id="singup-button"> Sign in &raquo;</button>
                     </div>
                 </form>
             </div>

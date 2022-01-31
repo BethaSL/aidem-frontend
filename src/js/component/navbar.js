@@ -29,7 +29,7 @@ export const Navbar = () => {
 			</ul>
 
 			<form className="">
-				<input className="form-control" type="text" placeholder="Organization's Search"/>
+				<input className="form-control form-control-sm" type="text" placeholder="Organization's Search"/>
 			</form>
 
 			<div className="btn-group">

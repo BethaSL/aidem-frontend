@@ -33,6 +33,11 @@ export const Orgprofile = () => {
             </div>
 
             <div className="form-box">
+                <label className="form-label"> Email: </label>
+                <span> <input type="text" className="input-box " placeholder="Full Name" value="email@example.com"/> </span>  
+            </div>
+
+            <div className="form-box">
                 <label className="form-label" htmlFor="input-address"> Address: </label>
                 <span> <input className="input-box" id="input-address" required placeholder="Address" value={address} onChange={(e) => { setAddress(e.target.value) }} /> </span>
             </div>
@@ -49,14 +54,15 @@ export const Orgprofile = () => {
 
             <div className="form-box">
                 <label className="form-label"> Organization's status: </label>
-                <div>
-                    <input type="checkbox" className="form-check-input form-checkbox" id="dropdownCheck" />
-                    <label className="form-check-label" for="dropdownCheck">
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="option1" checked onChange={(e) => { setContacted(e.target.value) }} />
+                    <label className="form-check-label">
                         Active
                     </label>
-
-                    <input type="checkbox" className="form-check-input form-checkbox" id="dropdownCheck" />
-                    <label className="form-check-label" for="dropdownCheck">
+                </div>
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="option2" onChange={(e) => { setContacted(e.target.value) }} />
+                    <label className="form-check-label">
                         Inactive
                     </label>
                 </div>
