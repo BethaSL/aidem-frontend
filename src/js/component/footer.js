@@ -38,7 +38,7 @@ export const Footer = () => (
 				<form>
 					<h6><strong>Subscribe to our newsletter</strong></h6>
 					<p>Monthly digest of our top organizations and latest events</p>
-					<div className="d-flex w-100 gap-2">
+					<div className="d-flex w-100">
 						<input id="newsletter1" type="text" className="form-control" placeholder="Email address" />
 						<button className="btn form-button" type="button">Subscribe</button>
 					</div>

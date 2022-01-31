@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 export const Orgprofile = () => {
     const { Store, actions } = useContext(Context);
     const [orgname, setOrgname] = useState("");
-    const [address, setAddress] = useState(""); // No estoy segura que esto se necesite porque aqui se usara la API externa 
+    const [address, setAddress] = useState("");
     const [rif, setRif] = useState("");
     const [persononcharge, setPersononcharge] = useState("");
     const [bankname, setBankname] = useState("");

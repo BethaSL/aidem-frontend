@@ -20,7 +20,7 @@ export const Navbar = () => {
 				</li>
 
 				<li className="nav-item">
-					<Link to="/myprofile" className="navbar-link l2"> My profile</Link>
+					<Link to="/myprofile" className="navbar-link"> My profile</Link>
 				</li>
 
 				<li className="nav-item">
@@ -28,12 +28,12 @@ export const Navbar = () => {
 				</li>
 			</ul>
 
-			<form className="offset-6">
+			<form className="">
 				<input className="form-control" type="text" placeholder="Organization's Search"/>
 			</form>
 
 			<div className="btn-group">
-				<button type="button" className="btn navbar-button dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+				<button type="button" className="btn navbar-button dropdown-toggle" data-bs-toggle="dropdown">
 					<span className="navbar-toggler-icon"></span>
 				</button>
 				<ul className="dropdown-menu dropdown-menu-end">

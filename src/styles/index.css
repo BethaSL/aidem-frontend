@@ -7,6 +7,13 @@
     --color-5: #fefcfb;
 }
 
+.myprofile-pic {
+    min-width: 350px;
+    max-width: 350px;
+}
+
+
+/*General settings*/
 h1{
     color: var(--color-5);
     background: var(--color-3);
@@ -69,7 +76,8 @@ h5 {
 .footer {
     color: var(--color-5);
     background: var(--color-1);
-    padding: 20px;
+    padding: 10px;
+    padding-left: 30px;
     font-size: small;
     display: flex;
 }
