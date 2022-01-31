@@ -35,7 +35,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 							headers: {
 								 "Content-Type": "application/json",
 								},
-						});orgprofile
+						});
+						console.log(response)
 						let data = await response.json()
 						setStore({...store,[endpoint]: data.results});
 					}
@@ -94,7 +95,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(data)
 				}
 				catch (error) {
-					console.log("profile error", error)
+					console.log("signup error", error)
 				}
 			},
 			
