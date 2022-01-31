@@ -10,16 +10,19 @@ export const Orgprofile = () => {
     const [bankname, setBankname] = useState("");
     const [accountnum, setAccountnum] = useState("");
     const [phone, setPhone] = useState("");
+    const [description, setDescription] = useState("")
 
     const submitData = () => {
         let orgProfile = {
-            orgname: orgname,
+            organization_name: orgname,
             address: address,
             rif: rif,
-            persononcharge: persononcharge,
+            person_oncharge: persononcharge,
             bankname: bankname,
             accountnum: accountnum,
-            phone: phone
+            phone: phone,
+            description: description,
+            user_info: 1
         };
         let response = actions.Orgprofile(orgProfile);
     }
@@ -30,6 +33,11 @@ export const Orgprofile = () => {
             <div className="form-box">
                 <label className="form-label" htmlFor="input-name"> Organization's Name: </label>
                 <span> <input className="input-box" id="input-name" required placeholder="Organization Name" value={orgname} onChange={(e) => { setOrgname(e.target.value) }} /> </span>
+            </div>
+
+            <div className="form-box">
+                <label className="form-label"> Description: </label>
+                <span> <input className="input-box" required placeholder="Description" value={description} onChange={(e) => { setDescription(e.target.value) }} /> </span>
             </div>
 
             <div className="form-box">
