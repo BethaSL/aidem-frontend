@@ -55,13 +55,14 @@ h5 {
     background: var(--color-5);
 }
 
-.navbar-button{
-    color: var(--color-4);    
-    background: unset;
+.navbar-logo {
+    margin-right: 50px;
 }
 
-.home-title {
-    margin-top: 100px;
+.navbar-link {
+    color: var(--color-4);
+    text-decoration: unset;
+    margin-right: 15px;
 }
 
 /*Footer*/
