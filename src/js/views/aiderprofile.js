@@ -10,11 +10,12 @@ export const Aiderprofile = () => {
 
     const submitData = () => {
         let aiderProfile = {
-            fullname: fullname,
+            full_name: fullname,
             phone: phone,
             contacted: contacted
         };
-        let response = actions.Aiderprofile(aiderProfile);
+        console.log(aiderProfile)
+        let response = actions.aiderProfile(aiderProfile);
     }
 
     return (
@@ -23,7 +24,7 @@ export const Aiderprofile = () => {
 
             <div className="form-box">
                 <label className="form-label"> Email: </label>
-                <span> <input type="text" className="input-box " placeholder="Full Name" value="email@example.com"/> </span>  
+                <span> <input type="text" className="input-box " placeholder="email@example.com" /> </span>  
             </div>
 
             <div className="form-box">

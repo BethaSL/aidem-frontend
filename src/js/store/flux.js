@@ -72,7 +72,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			userReg: async userRegister => {
-				console.log(userRegister)
 				const store = getStore();
 				try {
 					let response = await fetch(`${store.urlBase}/signup`, {
@@ -83,7 +82,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(userRegister)
 					});
 					let data = await response.json()
-					console.log(data)
 				}
 				catch (error) {
 					console.log("signup error", error)
@@ -104,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let data = await response.json()
 				}
 				catch (error) {
-					console.log("signup error", error)
+					console.log("Changes not applied", error)
 				}
 			},
 			
@@ -115,14 +113,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
+							"Authorization": `Bearer ${store.token}`
 						},
 						body: JSON.stringify(aiderProfile)
 					});
 					let data = await response.json()
-					console.log(data)
 				}
 				catch (error) {
-					console.log("signup error", error)
+					console.log("Changes not applied", error)
 				}
 			},
 		}
