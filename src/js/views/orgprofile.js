@@ -12,7 +12,6 @@ export const Orgprofile = () => {
     const [phone, setPhone] = useState("");
     const [description, setDescription] = useState("")
     const [orgtype, setOrgtype] = useState("")
-    const [orgreview, setOrgreview] = useState("");
     const [status, setStatus] = useState(true)
 
     const submitData = () => {
@@ -24,13 +23,12 @@ export const Orgprofile = () => {
             phone: phone,
             address: address,
             person_oncharge: persononcharge,
-            status: contacted,
-            bankname: bankname,
-            accountnum: accountnum,
-            phone: phone,
-            orgreview: orgreview,
+            status: status,
+            bank_name: bankname,
+            account_number: accountnum
         };
-        let response = actions.Orgprofile(orgProfile);
+        let response = actions.orgProfile(orgProfile);
+        
     }
 
     return (
@@ -39,12 +37,17 @@ export const Orgprofile = () => {
 
             <div className="form-box">
                 <label className="form-label"> Email: </label>
-                <span> <input type="text" className="input-box " placeholder="Full Name" value="email@example.com" /> </span>
+                <span> <input className="input-box " placeholder="email@example.com"/> </span>
             </div>
 
             <div className="form-box">
                 <label className="form-label" htmlFor="input-name"> Organization's Name: </label>
                 <span> <input className="input-box" id="input-name" required placeholder="Organization Name" value={orgname} onChange={(e) => { setOrgname(e.target.value) }} /> </span>
+            </div>
+
+            <div className="form-box">
+                <label className="form-label"> Phone number: </label>
+                <span> <input className="input-box" required placeholder="Phone number" value={phone} onChange={(e) => { setPhone(e.target.value) }} /> </span>
             </div>
 
             <div className="form-box">
@@ -71,12 +74,12 @@ export const Orgprofile = () => {
 
             <div className="form-box">
                 <label className="form-label" htmlFor="input-address"> Address: </label>
-                <span> <textarea className="form-control input-box" rows="3" require value={address} onChange={(e) => { setAddress(e.target.value) }}></textarea></span>
+                <span> <textarea className="form-control input-box" rows="3" value={address} onChange={(e) => { setAddress(e.target.value) }}></textarea></span>
             </div>
 
             <div className="form-box">
                 <label className="form-label"> Organization's description: </label>
-                <span><textarea className="form-control input-box" rows="3" value={orgreview} onChange={(e) => { setOrgreview(e.target.value) }}>Write a short review of your organization</textarea></span>
+                <span><textarea className="form-control input-box" rows="3" value={description} onChange={(e) => { setDescription(e.target.value) }}>Write a short review of your organization</textarea></span>
             </div>
 
             <div className="form-box">
@@ -104,20 +107,14 @@ export const Orgprofile = () => {
             <h4 className="text-center"> Bank Data </h4>
             <div className="form-box">
                 <label className="form-label"> Bank's Name: </label>
-                <span> <input className="input-box" required placeholder="Bank's Name" value={rif} onChange={(e) => { setBankname(e.target.value) }} /> </span>
-            </div>
-
-            <div className="form-box">
-                <label className="form-label"> Account number: </label>
-                <span> <input className="input-box" required placeholder="Account number" value={rif} onChange={(e) => { setAccountnum(e.target.value) }} /> </span>
+                <span> <input className="input-box" required placeholder="Bank's Name" value={bankname} onChange={(e) => { setBankname(e.target.value) }} /> </span>
             </div>
 
             <div className="form-box last-row">
-                <label className="form-label"> Phone number: </label>
-                <span> <input className="input-box" required placeholder="Phone number" value={rif} onChange={(e) => { setPhone(e.target.value) }} /> </span>
+                <label className="form-label"> Account number: </label>
+                <span> <input className="input-box" required placeholder="Account number" value={accountnum} onChange={(e) => { setAccountnum(e.target.value) }} /> </span>
             </div>
-
-            <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center">
                 <button type="button" onClick={submitData} className="btn form-button"> Save </button>
             </div>
 
