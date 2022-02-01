@@ -12,7 +12,8 @@ export const Orgprofile = () => {
     const [phone, setPhone] = useState("");
     const [description, setDescription] = useState("")
     const [orgtype, setOrgtype] = useState("")
-    const [contacted, setContacted] = useState("")
+    const [orgreview, setOrgreview] = useState("");
+    const [status, setStatus] = useState(true)
 
     const submitData = () => {
         let orgProfile = {
@@ -23,8 +24,11 @@ export const Orgprofile = () => {
             phone: phone,
             address: address,
             person_oncharge: persononcharge,
-            status: contacted,
-
+            status: contacted,          
+            bankname: bankname,
+            accountnum: accountnum,
+            phone: phone,
+            orgreview: orgreview,
         };
         let response = actions.Orgprofile(orgProfile);
     }
@@ -53,6 +57,11 @@ export const Orgprofile = () => {
             </div>
 
             <div className="form-box">
+                <label className="form-label"> Email: </label>
+                <span> <input type="text" className="input-box " placeholder="Full Name" value="email@example.com" /> </span>
+            </div>
+
+            <div className="form-box">
                 <label className="form-label" htmlFor="input-address"> Address: </label>
                 <span> <input className="input-box" id="input-address" required placeholder="Address" value={address} onChange={(e) => { setAddress(e.target.value) }} /> </span>
             </div>
@@ -67,15 +76,30 @@ export const Orgprofile = () => {
                 <span> <input className="input-box" required placeholder="Person on charge" value={persononcharge} onChange={(e) => { setPersononcharge(e.target.value) }} /> </span>
             </div>
 
-            <div className="dropdown form-dropdown last-row">
-                <label className="form-label" htmlFor="dd-user-type" >Want to be contacted by organizations: </label>
-                <span className="d-flex aligne-content-center">
-                    <select className="form-select" aria-label="Default select example" onChange={(e) => { setContacted(e.target.value) }}>
-                        <option defaultValue={"Select yes / no"}>Do yo want to be contacted by the organizations?</option>
-                        <option value="true">Yes</option>
-                        <option value="false">No</option>
-                    </select>
-                </span>
+            <div className="form-box">
+                <label className="form-label"> Organization's description: </label>
+                <span><textarea className="form-control input-box" rows="3" value={orgreview} onChange={(e) => { setOrgreview(e.target.value) }}>Write a short review of your organization</textarea></span>
+            </div>
+
+            <div className="form-box">
+                <label className="form-label"> Organization's status: </label>
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="true" checked onChange={(e) => { setStatus(e.target.value) }} />
+                    <label className="form-check-label">
+                        Active
+                    </label>
+                </div>
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="false" onChange={(e) => { setStatus(e.target.value) }} />
+                    <label className="form-check-label">
+                        Inactive
+                    </label>
+                </div>
+            </div>
+
+            <div className="form-box">
+                <label className="form-label"> Add your Logo: </label>
+                <span> <input className="form-control form-control-sm" type="file"/> </span>
             </div>
 
 

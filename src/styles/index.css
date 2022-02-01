@@ -7,6 +7,13 @@
     --color-5: #fefcfb;
 }
 
+/*Carrusel*/
+.carousel {
+    margin-bottom: 15px;
+}
+
+
+/*General settings*/
 h1{
     color: var(--color-5);
     background: var(--color-3);
@@ -55,20 +62,26 @@ h5 {
     background: var(--color-5);
 }
 
-.navbar-button{
-    color: var(--color-4);    
-    background: unset;
+.navbar-logo {
+    margin-right: 50px;
 }
 
-.home-title {
-    margin-top: 100px;
+.navbar-link {
+    color: var(--color-4);
+    text-decoration: unset;
+    margin-right: 15px;
+}
+
+.rounded-circle{
+    margin-top: 5px;
 }
 
 /*Footer*/
 .footer {
     color: var(--color-5);
     background: var(--color-1);
-    padding: 20px;
+    padding: 10px;
+    padding-left: 30px;
     font-size: small;
     display: flex;
 }
@@ -102,9 +115,9 @@ h5 {
     font-weight: bold;
 }
 
-.form-checkbox {
-    margin-left: 10px;
-    margin-right: 10px;
+.form-check-label {
+    margin-left: 2px;
+    margin-right: 15px;
 }
 
 /*Organizations view*/
@@ -114,6 +127,13 @@ h5 {
     margin-bottom: 50px;
 }
 
+/*My profile view*/
+.myprofile-pic {
+    min-width: 350px;
+    max-width: 350px;
+}
+
+/*Components*/
 /*Cards*/
 .card{
     min-width: 350px;

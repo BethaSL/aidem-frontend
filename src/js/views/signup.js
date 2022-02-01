@@ -13,14 +13,13 @@ export const Signup = () => {
             let userRegister = {
                 email: email,
                 password: password,
-                // username: username,
                 user_type: user_type
             }
             let response = actions.userReg(userRegister)
         }
         else { console.log("Password missmatch", password, authpassword) }
     }
-
+    
     return (
         <div className="container fisrt-row">
             <h1 className="text-center"> Sign up </h1>
@@ -28,7 +27,7 @@ export const Signup = () => {
                 <form>
                     <div className="top-row">
                         <label className="form-label" htmlFor="input-id" > Email: </label>
-                        <span> <input className="input-box" id="input-id" required placeholder="Email" value={email} onChange={(e) => { setEmail(e.target.value) }} /> </span>
+                        <span> <input className="input-box" id="input-id" required placeholder="name@example.com" value={email} onChange={(e) => { setEmail(e.target.value) }} /> </span>
                     </div>
 
                     <div>
@@ -44,7 +43,7 @@ export const Signup = () => {
                     <div className="dropdown form-dropdown last-row">
                         <label className="form-label" htmlFor="dd-user-type" >User type: </label>
                         <span className="d-flex aligne-content-center">
-                            <select className="form-select" aria-label="Default select example" onChange={(e) => { setUsertype(e.target.value) }}>
+                            <select className="form-select" aria-label="custom-select mr-sm-2" onChange={(e) => { setUsertype(e.target.value) }}>
                                 <option defaultValue={"Select user type"}>Select user type</option>
                                 <option value="organization">Organization</option>
                                 <option value="particular">Aider (inidividual)</option>
@@ -54,8 +53,9 @@ export const Signup = () => {
                     </div>
 
                     <div className="d-flex justify-content-center">
-                        <button type="button" onClick={submitData} className="btn form-button" id="singup-button"> Sign up </button>
+                        <button type="button" onClick={submitData} className="btn form-button" id="singup-button"> Sign up &raquo;</button>
                     </div>
+
                 </form>
             </div>
         </div>
