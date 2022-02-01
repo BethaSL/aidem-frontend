@@ -1,7 +1,7 @@
 import { bool } from "prop-types";
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Signup = () => {
     const { store, actions } = useContext(Context);
@@ -22,7 +22,7 @@ export const Signup = () => {
         }
         else {
             document.getElementById('message').style.color = 'red';
-            document.getElementById('message').innerHTML = 'Password Missmatch or blank';
+            document.getElementById('message').innerHTML = 'Password Missmatch or Blank';
             PasswordIsValid = false
         }
         if (emailRegex.test(email)) {
@@ -45,51 +45,76 @@ export const Signup = () => {
         }
     }
 
+    return (
+        <div className="container fisrt-row">
+            <h1 className="text-center"> Sign up </h1>
+            <div className="form-box">
+                <form>
+                    <div className="top-row">
+                        <label className="form-label" htmlFor="input-id" > Email: </label>
+                        <span> <input className="input-box" id="input-id" required placeholder="name@example.com" value={email} onChange={(e) => { setEmail(e.target.value) }} /> </span>
+                    </div>
 
-return (
-    <div className="container fisrt-row">
-        <h1 className="text-center"> Sign up </h1>
-        <div className="form-box">
-            <form>
-                <div className="top-row">
-                    <label className="form-label" htmlFor="input-id" > Email: </label>
-                    <span> <input className="input-box" id="input-id" required placeholder="name@example.com" value={email} onChange={(e) => { setEmail(e.target.value) }} /> </span>
-                </div>
+                    <div>
+                        <label className="form-label" htmlFor="input-password" > Password: </label>
+                        <span> <input className="input-box" id="input-password" type="password" value={password} required placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} /> </span>
+                    </div>
 
-                <div>
-                    <label className="form-label" htmlFor="input-password" > Password: </label>
-                    <span> <input className="input-box" id="input-password" type="password" value={password} required placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} /> </span>
-                </div>
+                    <div>
+                        <label className="form-label" htmlFor="input-authpassword" > Confirm Password: </label>
+                        <span> <input className="input-box" id="input-authpassword" type="password" value={authpassword} required placeholder=" Confirm Password" onChange={(e) => { setAuthPassword(e.target.value) }} /> </span>
 
-                <div>
-                    <label className="form-label" htmlFor="input-authpassword" > Confirm Password: </label>
-                    <span> <input className="input-box" id="input-authpassword" type="password" value={authpassword} required placeholder=" Confirm Password" onChange={(e) => { setAuthPassword(e.target.value) }} /> </span>
+                    </div>
 
-                </div>
+                    <div className="dropdown form-dropdown last-row">
+                        <label className="form-label" htmlFor="dd-user-type" >User type: </label>
+                        <span className="d-flex aligne-content-center">
+                            <select className="form-select" aria-label="custom-select mr-sm-2" onChange={(e) => { setUsertype(e.target.value) }}>
+                                <option defaultValue={"Select user type"}>Select user type</option>
+                                <option value="organization">Organization</option>
+                                <option value="particular">Aider </option>
+                            </select>
+                        </span>
+                    </div>
 
-                <div className="dropdown form-dropdown last-row">
-                    <label className="form-label" htmlFor="dd-user-type" >User type: </label>
-                    <span className="d-flex aligne-content-center">
-                        <select className="form-select" aria-label="custom-select mr-sm-2" onChange={(e) => { setUsertype(e.target.value) }}>
-                            <option defaultValue={"Select user type"}>Select user type</option>
-                            <option value="organization">Organization</option>
-                            <option value="particular">Aider </option>
-                        </select>
-                    </span>
-                </div>
+                    <div>
+                        <p id='message' className="input-box text-center"></p>
+                        <p id='message2' className="input-box text-center"></p>
+                    </div>
 
-                <br />
 
-                <span id='message' className="input-box"><br /></span>
-                <br />
+                    <div className="d-flex justify-content-center">
+                        <button type="button" onClick={submitData} className="btn form-button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="singup-button"> Sign up &raquo;</button>
+                        {password && email && user_type ?
+                            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog modal-dialog-centered">
+                                    <div className="modal-content">
+                                        <div className="modal-header">
+                                            <h5 className="modal-title" id="exampleModalLabel">Profile</h5>
+                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div className="modal-body">
+                                            Do you want to complete your profile?
+                                        </div>
+                                        <div className="modal-footer">
+                                            <Link to="/">
+                                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                            </Link>
 
-                <span id='message2' className="input-box"><br /></span>
-                <div className="d-flex justify-content-center">
-                    <button type="button" onClick={submitData} className="btn form-button" id="singup-button"> Sign up &raquo;</button>
-                </div>
+                                            {user_type ?
+                                                <Link to="/orgprofile"> <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Yes</button> </Link>
+                                                : <Link to="/aiderprofile"> <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Yes</button> </Link>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            : null
+                        }
+                    </div>
 
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-)
+    )
 }
