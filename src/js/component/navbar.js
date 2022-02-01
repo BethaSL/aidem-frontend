@@ -22,7 +22,7 @@ export const Navbar = () => {
 				</li>
 
 				<li className="nav-item">
-					<Link to="/myprofile" className="navbar-link"> My profile</Link>
+					<Link to="/myprofile" className="navbar-link"> Profile</Link>
 				</li>
 
 				<li className="nav-item">

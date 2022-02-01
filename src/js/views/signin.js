@@ -8,20 +8,48 @@ export const Signin = () => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
     let history = useHistory();
+    const emailRegex = /\S+@\S+\.\S+/;
 
     const submitData = async () => {
+        var EmaiIsValid = true;
+        var PasswordIsValid = true;
         let loggedUser = {
             email: email,
             password: password
         };
+        if ((password !== "")) {
+            document.getElementById('PassErr').innerHTML = '';
 
-        let response = await actions.userAuth(loggedUser);
-        if(response.ok) {
-            setError(false)
-            history.push("/")
-        } else {
-            setError(true);
         }
+        else {
+            document.getElementById('PassErr').style.color = 'red';
+            document.getElementById('PassErr').innerHTML = 'Please Enter a Password';
+            document.getElementById("input-password").focus();
+            PasswordIsValid = false
+        }
+
+        if (emailRegex.test(email)) {
+            document.getElementById('emailerror').innerHTML = 'Your email is valid';
+            document.getElementById('emailerror').style.color = 'white';
+        } else {
+            document.getElementById('emailerror').style.color = 'red';
+            document.getElementById('emailerror').innerHTML = 'Please enter a Valid Email';
+            document.getElementById("input-id").focus();
+            EmaiIsValid = false;
+        }
+
+        if ((PasswordIsValid == true) && EmaiIsValid == true ) {
+            let response = await actions.userAuth(loggedUser);
+            if (response.ok) {
+                setError(false)
+                history.push("/")
+            } else {
+                setError(true);
+            }
+
+        }
+
+
     }
     return (
         <div className="container fisrt-row">
@@ -35,6 +63,10 @@ export const Signin = () => {
                     <div>
                         <label className="form-label" htmlFor="input-password"> Password: </label>
                         <span> <input className="input-box" id="input-password" type="password" value={password} required placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} /> </span>
+                    </div>
+                    <div>
+                        <p id='PassErr'></p>
+                        <p id='emailerror'></p>
                     </div>
 
                     <div className="d-flex justify-content-center">
