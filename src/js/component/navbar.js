@@ -1,12 +1,14 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/logo.png";
+import React, { useContext, useState } from "react";
+import { Context } from "../store/appContext";
 
 
 //EN LA LINEA 42 HAY QUE PONER EL LINK DE SING OUT**********
 
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top">
 			<div className="navbar-logo">
@@ -50,7 +52,7 @@ export const Navbar = () => {
 					<li><hr className="dropdown-divider" /></li>
 					<li>
 						<Link to="/">
-							<button className="dropdown-item" type="button">Sign out</button>
+							<button className="dropdown-item" onClick={actions.logOut} type="button">Sign out</button>
 						</Link>
 					</li>
 				</ul>
