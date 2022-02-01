@@ -28,7 +28,6 @@ export const Orgprofile = () => {
             account_number: accountnum
         };
         let response = actions.orgProfile(orgProfile);
-        
     }
 
     return (
@@ -37,7 +36,7 @@ export const Orgprofile = () => {
 
             <div className="form-box">
                 <label className="form-label"> Email: </label>
-                <span> <input className="input-box " placeholder="email@example.com"/> </span>
+                <span> <input readonly className="input-box " value="email@example.com"/> </span>
             </div>
 
             <div className="form-box">

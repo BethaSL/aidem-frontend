@@ -24,7 +24,7 @@ export const Aiderprofile = () => {
 
             <div className="form-box">
                 <label className="form-label"> Email: </label>
-                <span> <input type="text" className="input-box " placeholder="email@example.com" /> </span>  
+                <span> <input type="text" readonly className="input-box " value="email@example.com" /> </span>  
             </div>
 
             <div className="form-box">
