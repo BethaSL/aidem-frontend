@@ -4,12 +4,14 @@ import { Context } from "../store/appContext";
 export const Orgprofile = () => {
     const { Store, actions } = useContext(Context);
     const [orgname, setOrgname] = useState("");
-    const [address, setAddress] = useState(""); // No estoy segura que esto se necesite porque aqui se usara la API externa 
+    const [address, setAddress] = useState("");
     const [rif, setRif] = useState("");
     const [persononcharge, setPersononcharge] = useState("");
     const [bankname, setBankname] = useState("");
     const [accountnum, setAccountnum] = useState("");
     const [phone, setPhone] = useState("");
+    const [orgreview, setOrgreview] = useState("");
+    const [status, setStatus] = useState(true)
 
     const submitData = () => {
         let orgProfile = {
@@ -19,7 +21,9 @@ export const Orgprofile = () => {
             persononcharge: persononcharge,
             bankname: bankname,
             accountnum: accountnum,
-            phone: phone
+            phone: phone,
+            orgreview: orgreview,
+            status: status
         };
         let response = actions.Orgprofile(orgProfile);
     }
@@ -30,6 +34,11 @@ export const Orgprofile = () => {
             <div className="form-box">
                 <label className="form-label" htmlFor="input-name"> Organization's Name: </label>
                 <span> <input className="input-box" id="input-name" required placeholder="Organization Name" value={orgname} onChange={(e) => { setOrgname(e.target.value) }} /> </span>
+            </div>
+
+            <div className="form-box">
+                <label className="form-label"> Email: </label>
+                <span> <input type="text" className="input-box " placeholder="Full Name" value="email@example.com" /> </span>
             </div>
 
             <div className="form-box">
@@ -48,18 +57,29 @@ export const Orgprofile = () => {
             </div>
 
             <div className="form-box">
+                <label className="form-label"> Organization's description: </label>
+                <span><textarea className="form-control input-box" rows="3" value={orgreview} onChange={(e) => { setOrgreview(e.target.value) }}>Write a short review of your organization</textarea></span>
+            </div>
+
+            <div className="form-box">
                 <label className="form-label"> Organization's status: </label>
-                <div>
-                    <input type="checkbox" className="form-check-input form-checkbox" id="dropdownCheck" />
-                    <label className="form-check-label" for="dropdownCheck">
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="true" checked onChange={(e) => { setStatus(e.target.value) }} />
+                    <label className="form-check-label">
                         Active
                     </label>
-
-                    <input type="checkbox" className="form-check-input form-checkbox" id="dropdownCheck" />
-                    <label className="form-check-label" for="dropdownCheck">
+                </div>
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="false" onChange={(e) => { setStatus(e.target.value) }} />
+                    <label className="form-check-label">
                         Inactive
                     </label>
                 </div>
+            </div>
+
+            <div className="form-box">
+                <label className="form-label"> Add your Logo: </label>
+                <span> <input className="form-control form-control-sm" type="file"/> </span>
             </div>
 
 
