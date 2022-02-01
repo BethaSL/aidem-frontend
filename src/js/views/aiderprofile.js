@@ -6,7 +6,7 @@ export const Aiderprofile = () => {
     const { Store, actions } = useContext(Context);
     const [fullname, setFullname] = useState("");
     const [phone, setPhone] = useState("");
-    const [contacted, setContacted] = useState(""); //ESTO ES UN INPUT NO UN STRING
+    const [contacted, setContacted] = useState(true); //ESTO ES UN INPUT NO UN STRING
 
     const submitData = () => {
         let aiderProfile = {
@@ -39,13 +39,13 @@ export const Aiderprofile = () => {
             <div className="form-box">
                 <label className="form-label"> Would you like to be contacted by the Organizations?: </label>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="option1" checked onChange={(e) => { setContacted(e.target.value) }} />
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="true" checked onChange={(e) => { setContacted(e.target.value) }} />
                     <label className="form-check-label">
                         Yes
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="option2" onChange={(e) => { setContacted(e.target.value) }} />
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="false" onChange={(e) => { setContacted(e.target.value) }} />
                     <label className="form-check-label">
                         No
                     </label>

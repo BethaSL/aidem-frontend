@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			urlBase: "http://localhost:8080",
+			urlBase2:"https://restcountries.com/v3.1/name",
 			children: [],
 			elderly: [],
 			others: [],

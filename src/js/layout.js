@@ -49,7 +49,7 @@ const Layout = () => {
 						<Route exact path="/aid">
 							<Aid />
 						</Route>
-						<Route exact path="/myprofile">
+						<Route exact path="/myprofile/:theid">
 							<Myprofile />
 						</Route>
 						<Route>

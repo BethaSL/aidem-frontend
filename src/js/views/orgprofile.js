@@ -11,6 +11,7 @@ export const Orgprofile = () => {
     const [accountnum, setAccountnum] = useState("");
     const [phone, setPhone] = useState("");
     const [orgreview, setOrgreview] = useState("");
+    const [status, setStatus] = useState(true)
 
     const submitData = () => {
         let orgProfile = {
@@ -21,7 +22,8 @@ export const Orgprofile = () => {
             bankname: bankname,
             accountnum: accountnum,
             phone: phone,
-            orgreview: orgreview
+            orgreview: orgreview,
+            status: status
         };
         let response = actions.Orgprofile(orgProfile);
     }
@@ -62,13 +64,13 @@ export const Orgprofile = () => {
             <div className="form-box">
                 <label className="form-label"> Organization's status: </label>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="option1" checked onChange={(e) => { setContacted(e.target.value) }} />
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="true" checked onChange={(e) => { setStatus(e.target.value) }} />
                     <label className="form-check-label">
                         Active
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="option2" onChange={(e) => { setContacted(e.target.value) }} />
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="false" onChange={(e) => { setStatus(e.target.value) }} />
                     <label className="form-check-label">
                         Inactive
                     </label>

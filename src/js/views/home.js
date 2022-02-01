@@ -2,10 +2,7 @@ import React from "react";
 import Foto1 from "../../img/foto1.jpg";
 import Foto2 from "../../img/foto2.jpg";
 import Foto3 from "../../img/foto3.jpg";
-/*import { Orgs } from "../component/orgs.js";
-import { Achievements } from "../component/achievements.js";
-import { News } from "../component/news.js";
-import Carousel from "react-elastic-carousel";*/
+
 
 export const Home = () => {
 	return (
@@ -90,7 +87,7 @@ export const Home = () => {
 
 						<div className="row featurette">
 							<div className="col-md-7 order-md-2">
-								<h2 className="featurette-heading">Oh yeah, it’s that good. <span className="text-muted">See for yourself.</span></h2>
+								<h2 className="featurette-heading">Oh yeah, it is that good. <span className="text-muted">See for yourself.</span></h2>
 								<p className="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
 							</div>
 							<div className="col-md-5 order-md-1">
