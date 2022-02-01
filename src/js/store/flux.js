@@ -8,7 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			others: [],
 			favorites: [],
 			bankData: [],
-			organizations: []
+			organizations: [],
+			token: localStorage.getItem("token") || undefined
 			
 		},
 		actions: {
@@ -57,6 +58,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(loggedUser)
 					});
 					let data = await response.json()
+					if (response.ok){
+						setStore({
+							...store,
+							token:data.token
+						})
+						localStorage.setItem("token", data.token)
+					}
 				}
 				catch (error) {
 					console.log("signin error", error)
@@ -89,6 +97,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
+							"Autorization": `Bearer ${store.token}`
 						},
 						body: JSON.stringify(orgProfile)
 					});

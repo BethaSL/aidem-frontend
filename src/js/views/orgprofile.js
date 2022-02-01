@@ -10,20 +10,25 @@ export const Orgprofile = () => {
     const [bankname, setBankname] = useState("");
     const [accountnum, setAccountnum] = useState("");
     const [phone, setPhone] = useState("");
+    const [description, setDescription] = useState("")
+    const [orgtype, setOrgtype] = useState("")
     const [orgreview, setOrgreview] = useState("");
     const [status, setStatus] = useState(true)
 
     const submitData = () => {
         let orgProfile = {
-            orgname: orgname,
-            address: address,
+            description: description,
+            organization_type: orgtype,
+            organization_name: orgname,
             rif: rif,
-            persononcharge: persononcharge,
+            phone: phone,
+            address: address,
+            person_oncharge: persononcharge,
+            status: contacted,          
             bankname: bankname,
             accountnum: accountnum,
             phone: phone,
             orgreview: orgreview,
-            status: status
         };
         let response = actions.Orgprofile(orgProfile);
     }
@@ -34,6 +39,21 @@ export const Orgprofile = () => {
             <div className="form-box">
                 <label className="form-label" htmlFor="input-name"> Organization's Name: </label>
                 <span> <input className="input-box" id="input-name" required placeholder="Organization Name" value={orgname} onChange={(e) => { setOrgname(e.target.value) }} /> </span>
+            </div>
+            <div className="dropdown form-dropdown last-row">
+                <label className="form-label" htmlFor="dd-user-type" >Organization type: </label>
+                <span className="d-flex aligne-content-center">
+                    <select className="form-select" aria-label="Default select example" onChange={(e) => { setOrgtype(e.target.value) }}>
+                        <option defaultValue={"Select organization type"}>Select organization type</option>
+                        <option value="elderly">Elderly</option>
+                        <option value="children">Children</option>
+                        <option value="others">Others</option>
+                    </select>
+                </span>
+            </div>
+            <div className="form-box">
+                <label className="form-label"> Description: </label>
+                <span> <input className="input-box" required placeholder="Description" value={description} onChange={(e) => { setDescription(e.target.value) }} /> </span>
             </div>
 
             <div className="form-box">
