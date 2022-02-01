@@ -13,7 +13,10 @@ export const Organizations = (props) => {
                     Children Organizations
                 </h2>
                 <div className="borders">
-                    <Card />
+                    {store.children.map(item => {
+                        return <Card key={item.rif} item={item} section="children"/>
+                    })}
+                    
                 </div>
             </div>
             <div className="row elderly-cards">
@@ -21,7 +24,9 @@ export const Organizations = (props) => {
                     Elderly Organizations
                 </h2>
                 <div className="borders">
-                    <Card />
+                {store.elderly.map(item => {
+                        return <Card key={item.rif} item={item} section="elderly"/>
+                    })}
                 </div>
             </div>
             <div className="row others-cards">
@@ -29,7 +34,9 @@ export const Organizations = (props) => {
                     Other Organizations
                 </h2>
                 <div className="borders">
-                    <Card />
+                {store.others.map(item => {
+                        return <Card key={item.rif} item={item} section="others"/>
+                    })}
                 </div>
             </div>
         </div>
