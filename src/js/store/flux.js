@@ -38,7 +38,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 								 "Content-Type": "application/json",
 								},
 						});
-						console.log(response)
 						let data = await response.json()
 						setStore({...store,[endpoint]: data.results});
 					}
@@ -98,12 +97,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
-							"Autorization": `Bearer ${store.token}`
+							"Authorization": `Bearer ${store.token}`
 						},
 						body: JSON.stringify(orgProfile)
 					});
 					let data = await response.json()
-					console.log(data)
 				}
 				catch (error) {
 					console.log("signup error", error)
