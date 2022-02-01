@@ -1,3 +1,4 @@
+import { bool } from "prop-types";
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { useHistory } from "react-router-dom";
@@ -8,7 +9,33 @@ export const Signup = () => {
     const [password, setPassword] = useState("");
     const [authpassword, setAuthPassword] = useState("");
     const [user_type, setUsertype] = useState("")
+    const emailRegex = /\S+@\S+\.\S+/;
 
+    const submitData = () => {
+        var PasswordIsValid = true;
+        var EmaiIsValid = true;
+        
+        if ((password !== "" && password == authpassword)  )  {
+            document.getElementById('message').innerHTML = '';
+            document.getElementById('message').style.color = 'white';
+
+        }
+        else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Password Missmatch or blank';
+            PasswordIsValid = false
+        }
+        if (emailRegex.test(email)) {
+
+            document.getElementById('message2').innerHTML = '';
+            document.getElementById('message2').style.color = 'white';
+            
+        } else {
+            document.getElementById('message2').style.color = 'red';
+            document.getElementById('message2').innerHTML = 'Please enter a Valid Email';
+            EmaiIsValid = false;
+        }
+        if ((EmaiIsValid == true) && (PasswordIsValid == true)) {
 
     const submitData = async () => {
         if (password == authpassword) {
@@ -16,11 +43,16 @@ export const Signup = () => {
                 email: email,
                 password: password,
                 user_type: user_type
+            }
+            let response = actions.userReg(userRegister)
             };
 
             let response = await actions.userReg(userRegister)
         }
-        else { console.log("Password missmatch", password, authpassword) }
+        else {
+            console.log('stuff not submitted')
+        }
+
     }
     
     return (
@@ -30,6 +62,7 @@ export const Signup = () => {
                 <form>
                     <div className="top-row">
                         <label className="form-label" htmlFor="input-id" > Email: </label>
+                        <span> <input className="input-box" id="input-id" required placeholder="Email" value={email} onChange={(e) => { setEmail(e.target.value) }} /> </span>
                         <span> <input className="input-box" id="input-id" required placeholder="name@example.com" value={email} onChange={(e) => { setEmail(e.target.value) }} /> </span>
                     </div>
 
@@ -41,6 +74,7 @@ export const Signup = () => {
                     <div>
                         <label className="form-label" htmlFor="input-authpassword" > Confirm Password: </label>
                         <span> <input className="input-box" id="input-authpassword" type="password" value={authpassword} required placeholder=" Confirm Password" onChange={(e) => { setAuthPassword(e.target.value) }} /> </span>
+
                     </div>
 
                     <div className="dropdown form-dropdown last-row">
@@ -54,6 +88,12 @@ export const Signup = () => {
                         </span>
                     </div>
 
+                    <br />
+
+                    <span id='message' className="input-box"><br /></span>
+                    <br />
+
+                    <span id='message2' className="input-box"><br /></span>
                     <div className="d-flex justify-content-center">
                         <button type="button" onClick={submitData} className="btn form-button" id="singup-button"> Sign up &raquo;</button>
                     </div>
