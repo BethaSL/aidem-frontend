@@ -16,7 +16,6 @@ export const Signin = () => {
         };
 
         let response = await actions.userAuth(loggedUser);
-        console.log(response)
         if (response.ok) {
             setError(false)
             history.push("/")

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
+import { useHistory } from "react-router-dom";
 
 export const Signup = () => {
     const { store, actions } = useContext(Context);
@@ -8,14 +9,16 @@ export const Signup = () => {
     const [authpassword, setAuthPassword] = useState("");
     const [user_type, setUsertype] = useState("")
 
-    const submitData = () => {
+
+    const submitData = async () => {
         if (password == authpassword) {
             let userRegister = {
                 email: email,
                 password: password,
                 user_type: user_type
-            }
-            let response = actions.userReg(userRegister)
+            };
+
+            let response = await actions.userReg(userRegister)
         }
         else { console.log("Password missmatch", password, authpassword) }
     }
@@ -46,8 +49,7 @@ export const Signup = () => {
                             <select className="form-select" aria-label="custom-select mr-sm-2" onChange={(e) => { setUsertype(e.target.value) }}>
                                 <option defaultValue={"Select user type"}>Select user type</option>
                                 <option value="organization">Organization</option>
-                                <option value="particular">Aider (inidividual)</option>
-                                <option value="business">Aider (business)</option>
+                                <option value="particular">Aider </option>
                             </select>
                         </span>
                     </div>
