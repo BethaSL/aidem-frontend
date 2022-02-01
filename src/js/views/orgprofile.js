@@ -4,25 +4,27 @@ import { Context } from "../store/appContext";
 export const Orgprofile = () => {
     const { Store, actions } = useContext(Context);
     const [orgname, setOrgname] = useState("");
-    const [address, setAddress] = useState(""); // No estoy segura que esto se necesite porque aqui se usara la API externa 
+    const [address, setAddress] = useState("");
     const [rif, setRif] = useState("");
     const [persononcharge, setPersononcharge] = useState("");
     const [bankname, setBankname] = useState("");
     const [accountnum, setAccountnum] = useState("");
     const [phone, setPhone] = useState("");
     const [description, setDescription] = useState("")
+    const [orgtype, setOrgtype] = useState("")
+    const [contacted, setContacted] = useState("")
 
     const submitData = () => {
         let orgProfile = {
-            organization_name: orgname,
-            address: address,
-            rif: rif,
-            person_oncharge: persononcharge,
-            bankname: bankname,
-            accountnum: accountnum,
-            phone: phone,
             description: description,
-            user_info: 1
+            organization_type: orgtype,
+            organization_name: orgname,
+            rif: rif,
+            phone: phone,
+            address: address,
+            person_oncharge: persononcharge,
+            status: contacted,
+
         };
         let response = actions.Orgprofile(orgProfile);
     }
@@ -34,7 +36,17 @@ export const Orgprofile = () => {
                 <label className="form-label" htmlFor="input-name"> Organization's Name: </label>
                 <span> <input className="input-box" id="input-name" required placeholder="Organization Name" value={orgname} onChange={(e) => { setOrgname(e.target.value) }} /> </span>
             </div>
-
+            <div className="dropdown form-dropdown last-row">
+                <label className="form-label" htmlFor="dd-user-type" >Organization type: </label>
+                <span className="d-flex aligne-content-center">
+                    <select className="form-select" aria-label="Default select example" onChange={(e) => { setOrgtype(e.target.value) }}>
+                        <option defaultValue={"Select organization type"}>Select organization type</option>
+                        <option value="elderly">Elderly</option>
+                        <option value="children">Children</option>
+                        <option value="others">Others</option>
+                    </select>
+                </span>
+            </div>
             <div className="form-box">
                 <label className="form-label"> Description: </label>
                 <span> <input className="input-box" required placeholder="Description" value={description} onChange={(e) => { setDescription(e.target.value) }} /> </span>
@@ -55,19 +67,15 @@ export const Orgprofile = () => {
                 <span> <input className="input-box" required placeholder="Person on charge" value={persononcharge} onChange={(e) => { setPersononcharge(e.target.value) }} /> </span>
             </div>
 
-            <div className="form-box">
-                <label className="form-label"> Organization's status: </label>
-                <div>
-                    <input type="checkbox" className="form-check-input form-checkbox" id="dropdownCheck" />
-                    <label className="form-check-label" for="dropdownCheck">
-                        Active
-                    </label>
-
-                    <input type="checkbox" className="form-check-input form-checkbox" id="dropdownCheck" />
-                    <label className="form-check-label" for="dropdownCheck">
-                        Inactive
-                    </label>
-                </div>
+            <div className="dropdown form-dropdown last-row">
+                <label className="form-label" htmlFor="dd-user-type" >Want to be contacted by organizations: </label>
+                <span className="d-flex aligne-content-center">
+                    <select className="form-select" aria-label="Default select example" onChange={(e) => { setContacted(e.target.value) }}>
+                        <option defaultValue={"Select yes / no"}>Do yo want to be contacted by the organizations?</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </span>
             </div>
 
 
