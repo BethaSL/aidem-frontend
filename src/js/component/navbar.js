@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/logo.png";
 
@@ -7,6 +7,7 @@ import Logo from "../../img/logo.png";
 
 
 export const Navbar = () => {
+
 	return (
 		<div className="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top">
 			<div className="navbar-logo">
@@ -20,7 +21,7 @@ export const Navbar = () => {
 				</li>
 
 				<li className="nav-item">
-					<Link to="/myprofile" className="navbar-link"> My profile</Link>
+					<Link to="/myprofile" className="navbar-link"> Profile</Link>
 				</li>
 
 				<li className="nav-item">
