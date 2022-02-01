@@ -7,22 +7,22 @@ export const Signin = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
-    let history = useHistory(); 
+    let history = useHistory();
 
-    const submitData = async() => {
+    const submitData = async () => {
         let loggedUser = {
             email: email,
             password: password
         };
-        
+
         let response = await actions.userAuth(loggedUser);
+        console.log(response)
         if (response.ok) {
             setError(false)
             history.push("/")
-        }else {
+        } else {
             setError(true);
         }
-
     }
     return (
         <div className="container fisrt-row">
@@ -44,6 +44,7 @@ export const Signin = () => {
                 </form>
 
                 {error ? <div className="alert alert-danger"> Authentication error </div> : null}
+
             </div>
         </div>
     )

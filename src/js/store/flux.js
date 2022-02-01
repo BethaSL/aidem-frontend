@@ -64,6 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							token:data.token
 						})
 						localStorage.setItem("token", data.token)
+						return(response)
 					}
 				}
 				catch (error) {

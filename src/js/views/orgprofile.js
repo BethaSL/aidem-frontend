@@ -48,6 +48,11 @@ export const Orgprofile = () => {
             </div>
 
             <div className="form-box">
+                <label className="form-label"> Phone number: </label>
+                <span> <input className="input-box" required placeholder="Phone number" value={rif} onChange={(e) => { setPhone(e.target.value) }} /> </span>
+            </div>
+
+            <div className="form-box">
                 <label className="form-label" htmlFor="input-rif"> Rif: </label>
                 <span> <input className="input-box" id="input-rif" required placeholder="Rif" value={rif} onChange={(e) => { setRif(e.target.value) }} /> </span>
             </div>
@@ -107,14 +112,9 @@ export const Orgprofile = () => {
                 <span> <input className="input-box" required placeholder="Bank's Name" value={rif} onChange={(e) => { setBankname(e.target.value) }} /> </span>
             </div>
 
-            <div className="form-box">
+            <div className="form-box last-row">
                 <label className="form-label"> Account number: </label>
                 <span> <input className="input-box" required placeholder="Account number" value={rif} onChange={(e) => { setAccountnum(e.target.value) }} /> </span>
-            </div>
-
-            <div className="form-box last-row">
-                <label className="form-label"> Phone number: </label>
-                <span> <input className="input-box" required placeholder="Phone number" value={rif} onChange={(e) => { setPhone(e.target.value) }} /> </span>
             </div>
 
             <div className="d-flex justify-content-center">
