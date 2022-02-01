@@ -24,7 +24,7 @@ export const Orgprofile = () => {
             phone: phone,
             address: address,
             person_oncharge: persononcharge,
-            status: contacted,          
+            status: contacted,
             bankname: bankname,
             accountnum: accountnum,
             phone: phone,
@@ -36,25 +36,6 @@ export const Orgprofile = () => {
     return (
         <div className="container fisrt-row">
             <h3 className="text-center"> Organization's Profile  </h3>
-            <div className="form-box">
-                <label className="form-label" htmlFor="input-name"> Organization's Name: </label>
-                <span> <input className="input-box" id="input-name" required placeholder="Organization Name" value={orgname} onChange={(e) => { setOrgname(e.target.value) }} /> </span>
-            </div>
-            <div className="dropdown form-dropdown last-row">
-                <label className="form-label" htmlFor="dd-user-type" >Organization type: </label>
-                <span className="d-flex aligne-content-center">
-                    <select className="form-select" aria-label="Default select example" onChange={(e) => { setOrgtype(e.target.value) }}>
-                        <option defaultValue={"Select organization type"}>Select organization type</option>
-                        <option value="elderly">Elderly</option>
-                        <option value="children">Children</option>
-                        <option value="others">Others</option>
-                    </select>
-                </span>
-            </div>
-            <div className="form-box">
-                <label className="form-label"> Description: </label>
-                <span> <input className="input-box" required placeholder="Description" value={description} onChange={(e) => { setDescription(e.target.value) }} /> </span>
-            </div>
 
             <div className="form-box">
                 <label className="form-label"> Email: </label>
@@ -62,8 +43,8 @@ export const Orgprofile = () => {
             </div>
 
             <div className="form-box">
-                <label className="form-label" htmlFor="input-address"> Address: </label>
-                <span> <input className="input-box" id="input-address" required placeholder="Address" value={address} onChange={(e) => { setAddress(e.target.value) }} /> </span>
+                <label className="form-label" htmlFor="input-name"> Organization's Name: </label>
+                <span> <input className="input-box" id="input-name" required placeholder="Organization Name" value={orgname} onChange={(e) => { setOrgname(e.target.value) }} /> </span>
             </div>
 
             <div className="form-box">
@@ -76,9 +57,31 @@ export const Orgprofile = () => {
                 <span> <input className="input-box" required placeholder="Person on charge" value={persononcharge} onChange={(e) => { setPersononcharge(e.target.value) }} /> </span>
             </div>
 
+            <div className="dropdown form-dropdown form-box">
+                <label className="form-label" htmlFor="dd-user-type" >Organization type: </label>
+                <span className="">
+                    <select className="form-select input-box" aria-label="Default select example" onChange={(e) => { setOrgtype(e.target.value) }}>
+                        <option defaultValue={"Select organization type"}>Select organization type</option>
+                        <option value="elderly">Elderly</option>
+                        <option value="children">Children</option>
+                        <option value="others">Others</option>
+                    </select>
+                </span>
+            </div>
+
+            <div className="form-box">
+                <label className="form-label" htmlFor="input-address"> Address: </label>
+                <span> <textarea className="form-control input-box" rows="3" require value={address} onChange={(e) => { setAddress(e.target.value) }}></textarea></span>
+            </div>
+
             <div className="form-box">
                 <label className="form-label"> Organization's description: </label>
                 <span><textarea className="form-control input-box" rows="3" value={orgreview} onChange={(e) => { setOrgreview(e.target.value) }}>Write a short review of your organization</textarea></span>
+            </div>
+
+            <div className="form-box">
+                <label className="form-label"> Add your Logo: </label>
+                <span> <input className="form-control form-control-sm" type="file" /> </span>
             </div>
 
             <div className="form-box">
@@ -95,11 +98,6 @@ export const Orgprofile = () => {
                         Inactive
                     </label>
                 </div>
-            </div>
-
-            <div className="form-box">
-                <label className="form-label"> Add your Logo: </label>
-                <span> <input className="form-control form-control-sm" type="file"/> </span>
             </div>
 
 
