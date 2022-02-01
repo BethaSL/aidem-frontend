@@ -82,6 +82,7 @@ h5 {
     background: var(--color-1);
     padding: 10px;
     padding-left: 30px;
+    margin-top: 20px;
     font-size: small;
     display: flex;
 }
