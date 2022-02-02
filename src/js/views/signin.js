@@ -7,10 +7,22 @@ export const Signin = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
+    // const [errorPass, setErrorPass] = useState(false)
+    // const [errorEmail, setErrorEmail] = useState(false)
     let history = useHistory();
     const emailRegex = /\S+@\S+\.\S+/;
 
     const submitData = async () => {
+        // if(password.trim() == ""){
+        //     setErrorPass(true)
+        //     if(email.trim()== "") {}       
+        // }
+        // else
+        // {
+        //     setErrorPass(false)
+        // }
+
+
         var EmaiIsValid = true;
         var PasswordIsValid = true;
         let loggedUser = {
