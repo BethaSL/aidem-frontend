@@ -7,6 +7,13 @@
     --color-5: #fefcfb;
 }
 
+.prueba{
+    border: 1px solid red;
+    background-color: var(--color-1);
+}
+
+
+
 /*Carrusel*/
 .carrusel {
     margin-bottom: 40px;
