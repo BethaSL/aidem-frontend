@@ -99,9 +99,11 @@ export const Orgprofile = () => {
                     <span className="">
                         <select className="form-select input-box" aria-label="Default select example">
                             <option>Select Country</option>
-                            <option value="elderly">Elderly</option>
-                            <option value="children">Children</option>
-                            <option value="others">Others</option>
+                            {store.countries.map((city) => {
+                                return (
+                                    <option key={city} value={`${city}`}>{city}</option>
+                                )
+                            })}
                         </select>
                         <textarea className="form-control input-box" rows="3" value={address} onChange={(e) => { setAddress(e.target.value) }}></textarea>
                     </span>
