@@ -39,10 +39,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let allcountries = [];
 					for(let name of data){
 						allcountries.push(name.name.common)
-						//console.log(name.name.common)
 					}
 					setStore({...store,countries:allcountries.sort()})
-//					console.log(allcountries)
 				}
 				catch (error) {
 					console.log(error)

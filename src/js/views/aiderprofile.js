@@ -32,7 +32,7 @@ export const Aiderprofile = () => {
     }
 
     return (
-        <div className="container fisrt-row">
+        <div className="container fisrt-row footer-down">
             
 
             <h3 className="text-center"> Aider's Profile  </h3>

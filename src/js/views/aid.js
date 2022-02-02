@@ -14,7 +14,7 @@ export const Aid = () => {
         let response = actions.Aid(aid);
     }
     return (
-        <div className="container fisrt-row">
+        <div className="container fisrt-row footer-down">
             <h3 className="text-center"> Aid Them! </h3>
             <div className="dropdown form-dropdown last-row">
                 <label className="form-label" > Organization: </label>

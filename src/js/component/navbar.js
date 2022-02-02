@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Logo from "../../img/logo.png";
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
@@ -15,8 +14,6 @@ export const Navbar = () => {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						<li><a className="nav-link" href="/organizations">Organizations</a></li>
-						<li><a className="nav-link" href="/orgprofile">Profile</a></li>
-						<li><a className="nav-link" href="/aid">Aid them!</a></li>
 						{store.token == undefined ?
 							<>
 								<li className="nav-item"> <a className="nav-link active" aria-current="page" href="/signin">Sign in</a></li>
@@ -24,6 +21,8 @@ export const Navbar = () => {
 							</>
 							:
 							<>
+								<li><a className="nav-link" href="/orgprofile">Profile</a></li>
+								<li><a className="nav-link" href="/aid">Aid them!</a></li>
 								<li><a className="nav-link" href="/" onClick={actions.logOut}>Sign out</a></li>
 							</>
 						}
