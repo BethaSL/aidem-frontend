@@ -63,7 +63,7 @@ export const Signin = () => {
     }
     
     return (
-        <div className="container fisrt-row">
+        <div className="container fisrt-row footer-down">
             <h1 className="text-center"> Sign in </h1>
             <div className="form-box">
                 <form>

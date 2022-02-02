@@ -24,9 +24,6 @@ export const Card = ({ item, section }) => {
                     <button type="button" onClick={() => handleMoreInfo(item.id)} className="btn button form-button"> 
                     More Info 
                     </button>
-                    <a href="#" className="btn card__heart">
-                        <i className="fa fa-heart" />
-                    </a>
                 </div>
             </div>
         </div>
