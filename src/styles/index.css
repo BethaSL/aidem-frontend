@@ -58,15 +58,10 @@ h5 {
 .navbar {
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 5px;
     background: var(--color-5);
 }
 
-.navbar-logo {
-    margin-right: 50px;
-}
-
-.navbar-link {
+.nav-link {
     color: var(--color-4);
     text-decoration: unset;
     margin-right: 15px;
