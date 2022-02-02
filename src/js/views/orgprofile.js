@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
+import { useHistory } from "react-router-dom"
 
 export const Orgprofile = () => {
-    const { Store, actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const [orgname, setOrgname] = useState("");
     const [address, setAddress] = useState("");
     const [rif, setRif] = useState("");
@@ -13,30 +14,51 @@ export const Orgprofile = () => {
     const [description, setDescription] = useState("")
     const [orgtype, setOrgtype] = useState("")
     const [status, setStatus] = useState(true)
+    const [errorG, setErrorG] = useState(false)
+    let history = useHistory()
 
-    const submitData = () => {
-        let orgProfile = {
-            description: description,
-            organization_type: orgtype,
-            organization_name: orgname,
-            rif: rif,
-            phone: phone,
-            address: address,
-            person_oncharge: persononcharge,
-            status: status,
-            bank_name: bankname,
-            account_number: accountnum
-        };
-        let response = actions.orgProfile(orgProfile);
+    const submitData = async () => {
+        if (description.trim() != "" ||
+            orgtype.trim() != "" ||
+            orgname.trim() != "" ||
+            rif.trim() != "" ||
+            phone.trim() != "" ||
+            address.trim() != "" ||
+            persononcharge.trim() != "" ||
+            status.trim() != "" ||
+            bankname.trim() != "" ||
+            accountnum.trim() != "") {
+
+            let orgProfile = {
+                description: description,
+                organization_type: orgtype,
+                organization_name: orgname,
+                rif: rif,
+                phone: phone,
+                address: address,
+                person_oncharge: persononcharge,
+                status: status,
+                bank_name: bankname,
+                account_number: accountnum
+            };
+            let response = await actions.orgProfile(orgProfile);
+            if (response.ok) {
+                setErrorG(false)
+                history.push("/")
+            }
+        }
+        else{
+            setErrorG(true)
+        }
     }
 
     return (
         <div className="container fisrt-row">
             <h3 className="text-center"> Organization's Profile  </h3>
-
+            {errorG ? <h2 className="text-center alert"> Please fill all the fields </h2> : null}
             <div className="form-box">
                 <label className="form-label"> Email: </label>
-                <span> <input readonly className="input-box " value="email@example.com"/> </span>
+                <span> <input readOnly className="input-box " value={store.email} /> </span>
             </div>
 
             <div className="form-box">
@@ -113,7 +135,7 @@ export const Orgprofile = () => {
                 <label className="form-label"> Account number: </label>
                 <span> <input className="input-box" required placeholder="Account number" value={accountnum} onChange={(e) => { setAccountnum(e.target.value) }} /> </span>
             </div>
-                <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center">
                 <button type="button" onClick={submitData} className="btn form-button"> Save </button>
             </div>
 
