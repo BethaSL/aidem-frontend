@@ -47,7 +47,7 @@ export const Orgprofile = () => {
                 history.push("/")
             }
         }
-        else{
+        else {
             setErrorG(true)
         }
     }
@@ -95,7 +95,17 @@ export const Orgprofile = () => {
 
             <div className="form-box">
                 <label className="form-label" htmlFor="input-address"> Address: </label>
-                <span> <textarea className="form-control input-box" rows="3" value={address} onChange={(e) => { setAddress(e.target.value) }}></textarea></span>
+                <div className="dropdown form-dropdown form-box">
+                    <span className="">
+                        <select className="form-select input-box" aria-label="Default select example">
+                            <option>Select Country</option>
+                            <option value="elderly">Elderly</option>
+                            <option value="children">Children</option>
+                            <option value="others">Others</option>
+                        </select>
+                        <textarea className="form-control input-box" rows="3" value={address} onChange={(e) => { setAddress(e.target.value) }}></textarea>
+                    </span>
+                </div>
             </div>
 
             <div className="form-box">

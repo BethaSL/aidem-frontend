@@ -8,10 +8,9 @@
 }
 
 /*Carrusel*/
-.carousel {
-    margin-bottom: 15px;
+.carrusel {
+    margin-bottom: 40px;
 }
-
 
 /*General settings*/
 h1{
@@ -46,7 +45,7 @@ h5 {
 }
 
 .top-row {
-    margin-top: 15px;;
+    margin-top: 15px;
 }
 
 .last-row {

@@ -8,7 +8,7 @@ import Foto3 from "../../img/foto3.jpg";
 export const Home = () => {
 	return (
 		<div className="container fisrt-row">
-			<div className="row">
+			<div className="row carrusel">
 				<h3>News</h3>
 				<Carousel fade>
 					<Carousel.Item>
@@ -46,7 +46,7 @@ export const Home = () => {
 				</Carousel>
 			</div>
 
-			<div className="row">
+			<div className="row carrusel">
 				<h3> Achievements</h3>
 				<div className="col-lg-3">
 					<svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
