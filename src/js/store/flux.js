@@ -102,6 +102,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(orgProfile)
 					});
 					let data = await response.json()
+					if(response.ok){
+						return response
+					}
 				}
 				catch (error) {
 					console.log("Changes not applied", error)

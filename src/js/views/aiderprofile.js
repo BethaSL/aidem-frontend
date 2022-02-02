@@ -33,10 +33,10 @@ export const Aiderprofile = () => {
 
     return (
         <div className="container fisrt-row">
-            {error ? <h2 className="text-center alert"> Please fill all the fields </h2> : null}
+            
 
             <h3 className="text-center"> Aider's Profile  </h3>
-
+            {error ? <h2 className="text-center alert"> Please fill all the fields </h2> : null}
             <div className="form-box">
                 <label className="form-label"> Email: </label>
                 <span> <input type="text" readOnly className="input-box " value={store.email} /> </span>
