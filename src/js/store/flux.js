@@ -1,8 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			urlBase: "http://localhost:8080",
+			// urlBase: "http://localhost:8080",
 			urlBase2:"https://restcountries.com/v3.1/name",
+			urlBase:"https://8080-bethasl-aidembackend-i83xwrejjz0.ws-us30.gitpod.io",
 			children: [],
 			elderly: [],
 			others: [],

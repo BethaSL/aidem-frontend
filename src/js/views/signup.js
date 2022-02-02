@@ -1,64 +1,61 @@
 import { bool } from "prop-types";
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+
+
+import { useHistory } from "react-router-dom";
 
 export const Signup = () => {
     const { store, actions } = useContext(Context);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [authpassword, setAuthPassword] = useState("");
+    const [EmailExists, setEmailExists] = useState(false)
+    const [errorUserType, seterrorUserType] = useState(false)
+    const [errorEmail, setErrorEmail] = useState(false)
+    const [errorPass, setErrorPass] = useState(false)
     const [user_type, setUsertype] = useState("")
+    let history = useHistory();
     const emailRegex = /\S+@\S+\.\S+/;
 
     const submitData = () => {
-        var PasswordIsValid = true;
-        var EmaiIsValid = true;
-        var UserType = true;
+        setErrorPass(false)
+        setErrorEmail(false)
+        seterrorUserType(false)
 
-        if ((password !== "" && password == authpassword)) {
-            document.getElementById('PassErr').innerHTML = '';
+        if (emailRegex.test(email) !== true) {
+            setErrorEmail(true)
+        }
+        else if ((password.trim() == "") || (password != authpassword)) {
+            setErrorPass(true)
+
+        } else if (user_type.trim() == "") {
+            seterrorUserType(true)
 
 
         }
         else {
-            document.getElementById('PassErr').style.color = 'red';
-            document.getElementById('PassErr').innerHTML = 'Password Missmatch or blank';
-            document.getElementById("input-password").focus();
-            PasswordIsValid = false
-        }
-
-        if ((user_type !== "" && user_type !== "Select user type")) {
-
-            document.getElementById('UserTypeError').innerHTML = '';
-
-        } else {
-            document.getElementById('UserTypeError').style.color = 'red';
-            document.getElementById('UserTypeError').innerHTML = 'Please enter a valid User Type';
-            document.getElementById("usertype").focus();
-            UserType = false
-        }
-        if (emailRegex.test(email)) {
-
-            document.getElementById('EmailErr').innerHTML = '';
-
-        } else {
-            document.getElementById('EmailErr').style.color = 'red';
-            document.getElementById('EmailErr').innerHTML = 'Please enter a Valid Email';
-            document.getElementById("input-id").focus();
-            EmaiIsValid = false;
-        }
-        if ((EmaiIsValid == true) && (PasswordIsValid == true) && (UserType == true)) {
+            // seterrorUserType(false)
+            setErrorPass(false)
+            setErrorEmail(false)
             let userRegister = {
                 email: email,
                 password: password,
                 user_type: user_type
             }
             let response = actions.userReg(userRegister)
-        }
-    }
+            seterrorUserType(false)
+            if (response.ok) {
+                setEmailExists(false)
+                history.push("/signin")
+            } else {
+                setEmailExists(true);
 
-    console.log(user_type, email, password)
+
+            }
+        }
+
+    }
 
     return (
         <div className="container fisrt-row">
@@ -85,24 +82,27 @@ export const Signup = () => {
                         <label className="form-label" htmlFor="dd-user-type" >User type: </label>
                         <span className="d-flex aligne-content-center">
                             <select className="form-select" id="usertype" aria-label="custom-select mr-sm-2" onChange={(e) => { setUsertype(e.target.value) }}>
-                                <option defaultValue={"Select user type"}>Select user type</option>
+                                <option value={"Select user type"}>Select user type</option>
                                 <option value="organization">Organization</option>
-                                <option value="particular">Aider </option>
+                                <option value="particular">Aider</option>
                             </select>
                         </span>
                     </div>
 
                     <div>
-                        <p id='EmailErr' className="text-center"></p>
-                        <p id='PassErr' className="text-center"></p>
-                        <p id='UserTypeError' className="text-center"></p>
+
+                        {errorEmail ? <div className="alert alert-danger text-center"> Check your Email </div> : null}
+                        {errorPass ? <div className="alert alert-danger text-center"> Password Mismatch or Blank</div> : null}
+                        {errorUserType ? <div className="alert alert-danger text-center">No User Type Selected</div> : null}
+                        {EmailExists ? <div className="alert alert-danger text-center">Email already in use.</div> : null}
+
                     </div>
 
 
                     <div className="d-flex justify-content-center">
-                        <Link to="/signin">
+
                         <button type="button" onClick={submitData} className="btn form-button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="singup-button"> Sign up &raquo;</button>
-                        </Link>
+
                     </div>
 
                 </form>
