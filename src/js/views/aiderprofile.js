@@ -1,30 +1,45 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { Signup } from "../views/signup.js";
+import { useHistory } from "react-router-dom"
 
 export const Aiderprofile = () => {
-    const { Store, actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const [fullname, setFullname] = useState("");
     const [phone, setPhone] = useState("");
     const [contacted, setContacted] = useState(true); //ESTO ES UN INPUT NO UN STRING
+    const [error, setError] = useState(false)
+    let history = useHistory()
 
-    const submitData = () => {
-        let aiderProfile = {
-            full_name: fullname,
-            phone: phone,
-            contacted: contacted
-        };
-        console.log(aiderProfile)
-        let response = actions.aiderProfile(aiderProfile);
+    const submitData = async () => {
+        if (fullname.trim() != "" || phone.trim() != "") {
+            let aiderProfile = {
+                full_name: fullname,
+                phone: phone,
+                contacted: contacted
+            };
+            let response = await actions.aiderProfile(aiderProfile);
+            if (response.ok) {
+                setError(false)
+                history.push("/")
+            }
+
+        }
+        else {
+            setError(true)
+        }
+
     }
 
     return (
         <div className="container fisrt-row">
+            {error ? <h2 className="text-center alert"> Please fill all the fields </h2> : null}
+
             <h3 className="text-center"> Aider's Profile  </h3>
 
             <div className="form-box">
                 <label className="form-label"> Email: </label>
-                <span> <input type="text" readonly className="input-box " value="email@example.com" /> </span>  
+                <span> <input type="text" readOnly className="input-box " value={store.email} /> </span>
             </div>
 
             <div className="form-box">

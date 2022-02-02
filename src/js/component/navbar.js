@@ -1,8 +1,10 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/logo.png";
+import React, { useContext, useState } from "react";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top">
 			<div className="navbar-logo">
@@ -16,7 +18,7 @@ export const Navbar = () => {
 				</li>
 
 				<li className="nav-item">
-					<Link to="/myprofile" className="navbar-link"> Profile</Link>
+					<Link to="/orgprofile" className="navbar-link"> Profile</Link>
 				</li>
 
 				<li className="nav-item">
@@ -46,7 +48,7 @@ export const Navbar = () => {
 					<li><hr className="dropdown-divider" /></li>
 					<li>
 						<Link to="/">
-							<button className="dropdown-item" type="button">Sign out</button>
+							<button className="dropdown-item" onClick={actions.logOut} type="button">Sign out</button>
 						</Link>
 					</li>
 				</ul>

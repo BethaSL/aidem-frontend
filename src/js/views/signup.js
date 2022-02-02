@@ -27,8 +27,8 @@ export const Signup = () => {
             document.getElementById("input-password").focus();
             PasswordIsValid = false
         }
-      
-        if ((user_type !== "" && user_type !=="Select user type")) {
+
+        if ((user_type !== "" && user_type !== "Select user type")) {
 
             document.getElementById('UserTypeError').innerHTML = '';
 
@@ -58,7 +58,7 @@ export const Signup = () => {
         }
     }
 
-
+    console.log(user_type, email, password)
 
     return (
         <div className="container fisrt-row">
@@ -91,42 +91,18 @@ export const Signup = () => {
                             </select>
                         </span>
                     </div>
-                    
+
                     <div>
-                        <p id='EmailErr'></p>
-                        <p id='PassErr'></p>                   
-                        <p id='UserTypeError'></p>                    
+                        <p id='EmailErr' className="text-center"></p>
+                        <p id='PassErr' className="text-center"></p>
+                        <p id='UserTypeError' className="text-center"></p>
                     </div>
 
 
                     <div className="d-flex justify-content-center">
+                        <Link to="/signin">
                         <button type="button" onClick={submitData} className="btn form-button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="singup-button"> Sign up &raquo;</button>
-                        {password && email && user_type ?
-                            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div className="modal-dialog modal-dialog-centered">
-                                    <div className="modal-content">
-                                        <div className="modal-header">
-                                            <h5 className="modal-title" id="exampleModalLabel">Profile</h5>
-                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div className="modal-body">
-                                            Do you want to complete your profile?
-                                        </div>
-                                        <div className="modal-footer">
-                                            <Link to="/">
-                                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                            </Link>
-
-                                            {user_type ?
-                                                <Link to="/orgprofile"> <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Yes</button> </Link>
-                                                : <Link to="/aiderprofile"> <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Yes</button> </Link>
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            : null
-                        }
+                        </Link>
                     </div>
 
                 </form>

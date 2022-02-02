@@ -9,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			bankData: [],
 			organizations: [],
+			email: localStorage.getItem("email") || undefined,
 			token: localStorage.getItem("token") || undefined
 			
 		},
@@ -60,9 +61,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok){
 						setStore({
 							...store,
-							token:data.token
+							token:data.token, email:data.email
 						})
 						localStorage.setItem("token", data.token)
+						localStorage.setItem("email", data.email)
 						return(response)
 					}
 				}
@@ -117,12 +119,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 						},
 						body: JSON.stringify(aiderProfile)
 					});
-					let data = await response.json()
+					//let data = await response.json()
+					if(response.ok){
+						return response
+
+					}
 				}
 				catch (error) {
 					console.log("Changes not applied", error)
 				}
 			},
+
+			logOut: ()=>{
+				const store = getStore();
+				setStore({...store, token:undefined, email:undefined})
+				localStorage.removeItem("token")
+				localStorage.removeItem("email")
+			}
 		}
 	};
 };

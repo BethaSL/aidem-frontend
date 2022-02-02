@@ -48,9 +48,8 @@ export const Signin = () => {
             }
 
         }
-
-
     }
+    
     return (
         <div className="container fisrt-row">
             <h1 className="text-center"> Sign in </h1>
@@ -64,9 +63,10 @@ export const Signin = () => {
                         <label className="form-label" htmlFor="input-password"> Password: </label>
                         <span> <input className="input-box" id="input-password" type="password" value={password} required placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} /> </span>
                     </div>
+
                     <div>
-                        <p id='PassErr'></p>
-                        <p id='emailerror'></p>
+                        <p id='PassErr' className="text-center"></p>
+                        <p id='emailerror' className="text-center"></p>
                     </div>
 
                     <div className="d-flex justify-content-center">
