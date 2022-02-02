@@ -15,6 +15,7 @@ import { Orgprofile } from "./views/orgprofile";
 import { Aiderprofile } from "./views/aiderprofile";
 import { Aid } from "./views/aid.js";
 import { Myprofile } from "./views/myprofile.js";
+import {Orgbyid} from "./views/orgbyid.js"
 
 //create your first component
 const Layout = () => {
@@ -51,6 +52,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/myprofile/:theid">
 							<Myprofile />
+						</Route>
+						<Route exact path="/organizations/:theid">
+							<Orgbyid />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

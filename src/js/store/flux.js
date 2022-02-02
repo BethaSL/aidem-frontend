@@ -10,7 +10,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			bankData: [],
 			organizations: [],
 			email: localStorage.getItem("email") || undefined,
-			token: localStorage.getItem("token") || undefined
+			token: localStorage.getItem("token") || undefined,
+			orgbyid: undefined
 			
 		},
 		actions: {
@@ -30,6 +31,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(error)
 					}
 			},
+
+			getOrgbyid: async (id) => {
+				const store = getStore();
+				console.log(id)
+				let orgbyid = store.organizations.filter((organization)=>
+					{
+						return organization.id === id
+					})
+					console.log(orgbyid)
+					setStore({...store, orgbyid: orgbyid[0]})
+
+					// try {
+					// 	let response = await fetch(`${store.urlBase}/organizations/${id}`, {
+					// 		method: "GET",
+					// 		headers: {
+					// 			 "Content-Type": "application/json",
+					// 			},
+					// 	});
+					// 	let data = await response.json()
+					// 	setStore({...store, orgbyid: data.results});
+					// }
+					// catch (error) {
+					// 	console.log(error)
+					// }
+			},
+
 			getDataOrgType: async endpoint => {
 				const store = getStore();
 					try {
@@ -138,7 +165,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({...store, token:undefined, email:undefined})
 				localStorage.removeItem("token")
 				localStorage.removeItem("email")
-			}
+			},
 		}
 	};
 };

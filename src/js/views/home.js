@@ -2,9 +2,12 @@ import React from "react";
 import Foto1 from "../../img/foto1.jpg";
 import Foto2 from "../../img/foto2.jpg";
 import Foto3 from "../../img/foto3.jpg";
+import { useContext, useState } from "react";
+import { Context } from "../store/appContext";
 
 
 export const Home = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="container fisrt-row">
 			<div className="row">
@@ -40,17 +43,17 @@ export const Home = () => {
 			<div className="row">
 				<h3> Achievements</h3>
 				<div className="col-lg-3">
-					<svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+					<svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#FFFFFF" dy=".3em">{store.organizations.length}</text></svg>
 
 					<h2>Organizations</h2>
-					<p>We are proud to be helping so many organizations that trust us every day to handdle their adis!</p>
+					<p>We are proud to be helping so many organizations that trust us every day to handdle their aids!</p>
 				</div>
 
 				<div className="col-lg-3">
 					<svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
 					<h2>Aiders</h2>
-					<p>Thank you to aour Aiders who are always giving a hand on every way possible!</p>
+					<p>Thank you to our Aiders who are always giving a hand on every way possible!</p>
 				</div>
 
 				<div className="col-lg-3">
