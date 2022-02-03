@@ -1,4 +1,3 @@
-import { bool } from "prop-types";
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { useHistory } from "react-router-dom";
@@ -44,16 +43,12 @@ export const Signup = () => {
              actions.userReg(userRegister);
              //need to verify a susccesfull sign in before going to:
              // history.push also implement an user facing message using seterrorExists
-             history.push("/signin")
-                 
-
-               
+             history.push("/signin")               
         }
-
     }
 
     return (
-        <div className="container fisrt-row footer-down">
+        <div className="container first-row footer-down">
             <h1 className="text-center"> Sign up </h1>
             <div className="form-box">
                 <form>

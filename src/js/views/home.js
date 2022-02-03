@@ -13,7 +13,7 @@ import Car from "../../img/car.png";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	return (
-		<div className="container fisrt-row">
+		<div className="container first-row">
 			<div className="row carrusel">
 				<h3>News</h3>
 				<Carousel fade>

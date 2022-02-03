@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 export const Aid = () => {
     const { store, actions } = useContext(Context);
@@ -15,7 +16,7 @@ export const Aid = () => {
         let response = actions.Aid(aid);
     }
     return (
-        <div className="container fisrt-row footer-down">
+        <div className="container first-row footer-down">
             <h3 className="text-center"> Aid Them! </h3>
             <div>
                 <label className="form-label" > Organization: </label>
@@ -69,6 +70,10 @@ export const Aid = () => {
 
             <div className="d-flex justify-content-center">
                 <button type="button" onClick={submitData} className="btn form-button"> Send </button>
+
+                <Link to="/organizations">
+                    <button type="button" className="btn form-button"> Go back </button>
+                </Link>
             </div>
         </div>
     )

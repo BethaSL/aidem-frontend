@@ -61,7 +61,7 @@ export const Orgprofile = () => {
     }
 
     return (
-        <div className="container fisrt-row">
+        <div className="container first-row">
             <h3 className="text-center"> Organization's Profile  </h3>
             {errorG ? <h2 className="text-center alert"> Please fill all the fields </h2> : null}
             <div className="form-box">
