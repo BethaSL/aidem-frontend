@@ -41,17 +41,13 @@ export const Signup = () => {
                 password: password,
                 user_type: user_type
             }
-            let response = await actions.userReg(userRegister);
-            history.push("/signin")
-        //      if (response.ok) {
-        //         history.push("/signin")
-        //         seterrorExists(false)
-        //          history.push("/signin")
-        //       } else {
-        //          seterrorExists(true);
+             actions.userReg(userRegister);
+             //need to verify a susccesfull sign in before going to:
+             // history.push also implement an user facing message using seterrorExists
+             history.push("/signin")
+                 
 
-
-        //       }
+               
         }
 
     }

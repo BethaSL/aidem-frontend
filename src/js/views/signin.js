@@ -33,14 +33,13 @@ export const Signin = () => {
                 password: password
             };
             let response = await actions.userAuth(loggedUser);
-            history.push("/")
-            // if (response.ok) {
-            //     setAuthError(false)
-            //     history.push("/")
-            // } else {
-            //      setAuthError(true);
+            if (localStorage.token != null) {
+                 setAuthError(false)
+                 history.push("/")
+             } else {
+                  setAuthError(true);
 
-            //  }
+              }
         }
     }
 
