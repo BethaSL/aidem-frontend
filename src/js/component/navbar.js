@@ -32,6 +32,7 @@ export const Navbar = () => {
 												<li><a className="nav-link" href="/aiderprofile">{store.full_name}</a></li>
 												: <li><a className="nav-link" href="/">{store.full_name}</a></li>
 								}
+								
 								<li><a className="nav-link" href="/aid">Aid them!</a></li>
 								<li><a className="nav-link" href="/" onClick={actions.logOut}>Sign out</a></li>
 							</>
