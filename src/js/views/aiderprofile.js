@@ -23,17 +23,15 @@ export const Aiderprofile = () => {
                 setError(false)
                 history.push("/")
             }
-
         }
         else {
             setError(true)
         }
-
     }
 
     return (
         <div className="container fisrt-row footer-down">
-            
+
 
             <h3 className="text-center"> Aider's Profile  </h3>
             {error ? <h2 className="text-center alert"> Please fill all the fields </h2> : null}
@@ -70,6 +68,29 @@ export const Aiderprofile = () => {
 
             <div className="d-flex justify-content-center">
                 <button type="button" onClick={submitData} className="btn form-button"> Save </button>
+                <span>
+                    <button type="button" className="btn delete-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Delete Account
+                    </button>
+
+                    <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal-dialog">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">Delete Account</h5>
+                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div className="modal-body">
+                                    Are you sure you want to delete your account?
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Yes</button>
+                                    <button type="button" className="btn form-button">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </span>
             </div>
         </div>
     )
