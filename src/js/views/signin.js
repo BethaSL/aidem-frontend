@@ -13,7 +13,7 @@ export const Signin = () => {
     const emailRegex = /\S+@\S+\.\S+/;
 
     const submitData = async () => {
-        setErrorEmail(false)
+        
       
        
         if (emailRegex.test(email) !== true) {
@@ -21,6 +21,7 @@ export const Signin = () => {
         }
         else if (password.trim() == "") {
             setErrorPass(true)
+            setErrorEmail(false)
 
         } else
      {
