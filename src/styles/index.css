@@ -12,6 +12,10 @@
     margin-bottom: 40px;
 }
 
+.carrusel-caption {
+    font-size: x-large;
+}
+
 /*General settings*/
 h1{
     color: var(--color-5);

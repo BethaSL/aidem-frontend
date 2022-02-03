@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel'
 import Foto1 from "../../img/foto1.jpg";
-import Foto2 from "../../img/foto2.jpg";
+import Foto2 from "../../img/foto2.jpeg";
 import Foto3 from "../../img/foto3.jpg";
 import Money from "../../img/money.png";
 import Supplies from "../../img/supplies.png";
@@ -21,29 +21,33 @@ export const Home = () => {
 							alt="First slide"
 						/>
 						<Carousel.Caption>
-							<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+							<h4 className="carrusel-caption">These furry friends were adopted during our latest event with Happy doggies!</h4>
 						</Carousel.Caption>
 					</Carousel.Item>
+
 					<Carousel.Item>
 						<img
 							className="d-block w-100"
 							src={Foto2}
 							alt="Second slide"
 						/>
-
 						<Carousel.Caption>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<h4 className="carrusel-caption"><span><strong> Adider! </strong></span>
+								Next week Grannies is celebrating their 5 years aniversary, contact them to participate or colaborate as you can!
+							</h4>
 						</Carousel.Caption>
 					</Carousel.Item>
+
 					<Carousel.Item>
 						<img
 							className="d-block w-100"
 							src={Foto3}
 							alt="Third slide"
 						/>
-
 						<Carousel.Caption>
-							<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+							<h4 className="carrusel-caption">
+								Remember we are collecting toys for the Ronald Mc Donalds event next month.
+							</h4>
 						</Carousel.Caption>
 					</Carousel.Item>
 				</Carousel>
