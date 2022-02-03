@@ -43,15 +43,15 @@ export const Signup = () => {
             }
             let response = await actions.userReg(userRegister);
             history.push("/signin")
-             if (response.ok) {
-                history.push("/signin")
-                seterrorExists(false)
-                 history.push("/signin")
-              } else {
-                 seterrorExists(true);
+        //      if (response.ok) {
+        //         history.push("/signin")
+        //         seterrorExists(false)
+        //          history.push("/signin")
+        //       } else {
+        //          seterrorExists(true);
 
 
-              }
+        //       }
         }
 
     }
