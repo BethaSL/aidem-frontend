@@ -24,7 +24,7 @@ export const Home = () => {
 							alt="First slide"
 						/>
 						<Carousel.Caption>
-							<h4 className="carrusel-caption">These furry friends were adopted during our latest event with Happy doggies!</h4>
+							<h4 className="carrusel-caption">These furry friends were adopted during our latest event with Happy Doggies!</h4>
 						</Carousel.Caption>
 					</Carousel.Item>
 
@@ -35,8 +35,8 @@ export const Home = () => {
 							alt="Second slide"
 						/>
 						<Carousel.Caption>
-							<h4 className="carrusel-caption"><span><strong> Adider! </strong></span>
-								Next week Grannies is celebrating their 5 years aniversary, contact them to participate or colaborate as you can!
+							<h4 className="carrusel-caption"><span><strong> Aider! </strong></span>
+								Next week Granny's is celebrating its 5 years aniversary, contact them to participate or collaborate as you can!
 							</h4>
 						</Carousel.Caption>
 					</Carousel.Item>
@@ -49,7 +49,7 @@ export const Home = () => {
 						/>
 						<Carousel.Caption>
 							<h4 className="carrusel-caption">
-								Remember we are collecting toys for the Ronald Mc Donalds event next month.
+								Remember we are collecting toys for the Ronald McDonalds event next month.
 							</h4>
 						</Carousel.Caption>
 					</Carousel.Item>
