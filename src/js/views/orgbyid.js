@@ -17,7 +17,7 @@ export const Orgbyid = () => {
 
     return (
         store.orgbyid != undefined && (<div className="container fisrt-row">
-            <h3> aider_NAME </h3>
+            <h3> {store.orgbyid.organization_name} </h3>
             <div className="row">
                 <div className="col-4">
                     <img src="https://via.placeholder.com/300x200" className="myprofile-pic" alt="..." />

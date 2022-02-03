@@ -55,21 +55,21 @@ export const Home = () => {
 			<div className="row carrusel">
 				<h3> Achievements</h3>
 				<div className="col">
-					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> 45 </strong> </h6>
+					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> {store.organizations.length} </strong> </h6>
 					<h2>Organizations</h2>
 					<p>We are proud to be helping so many organizations that trust us every day to handdle their aids!</p>
 				</div>
 
 				<div className="col-lg-3">
-					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> 93 </strong> </h6>
+					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> {store.aiders.length}</strong> </h6>
 					<h2>Aiders</h2>
 					<p>Thank you to our Aiders who are always giving a hand on every way possible!</p>
 				</div>
 
 				<div className="col-lg-3">
-					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> $700 </strong> </h6>
-					<h2>Financial Aid</h2>
-					<p>So far this is what we have collected for our different organizations.</p>
+					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> {store.countries.length} </strong> </h6>
+					<h2>Countries</h2>
+					<p>Our Aiders and Organizations come from accross the world. <span><strong>We are global!</strong></span></p>
 				</div>
 
 				<div className="col-lg-3">

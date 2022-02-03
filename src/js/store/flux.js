@@ -10,6 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			bankData: [],
 			organizations: [],
+			aiders: [],
 			email: localStorage.getItem("email") || undefined,
 			token: localStorage.getItem("token") || undefined,
 			user_type: localStorage.getItem("user_type") || undefined,
