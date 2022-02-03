@@ -2,10 +2,11 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 
 export const Aid = () => {
-    const { Store, actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const [organization, setOrganization] = useState("");
     const [aid_type, setAidtype] = useState("");
-    
+    const [aid_status, setAidstatus] = useState("");
+
     const submitData = () => {
         let aid = {
             organization: organization,
@@ -16,21 +17,14 @@ export const Aid = () => {
     return (
         <div className="container fisrt-row footer-down">
             <h3 className="text-center"> Aid Them! </h3>
-            <div className="dropdown form-dropdown last-row">
+            <div>
                 <label className="form-label" > Organization: </label>
                 <span className="d-flex align-content-center">
-                    <select className="form-select" aria-label="Default select example" onChange={(e) => { setOrganization(e.target.value) }}>
-                        <option defaultValue={"Select organization"}>Select an Organization</option>
-                        <option value="financial">Financial</option>
-                        <option value="supplies">Supplies</option>
-                        <option value="event">Event</option>
-                        <option value="ride">Offer a ride</option>
-                        <option value="other">Other</option>
-                    </select>
+                    <input readOnly className="input-box" value={store.orgbyid.organization_name} />
                 </span>
             </div>
 
-            <div className="dropdown form-dropdown ">
+            <div className="dropdown form-dropdown aid-input">
                 <label className="form-label" > Aid type: </label>
                 <span className="d-flex align-content-center">
                     <select className="form-select" aria-label="Default select example" onChange={(e) => { setAidtype(e.target.value) }}>
@@ -44,19 +38,33 @@ export const Aid = () => {
                 </span>
             </div>
 
-            <div className="form-box last-row">
-                <label className="form-label"> Anonymus?: </label>
-                <div>
-                    <input type="checkbox" className="form-check-input form-checkbox" id="dropdownCheck" />
-                    <label className="form-check-label" for="dropdownCheck">
+            <div className="aid-input d-flex">
+                <label className="form-label">Anonymus?: </label>
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="true" checked onChange={(e) => { setStatus(e.target.value) }} />
+                    <label className="form-check-label">
                         Yes
                     </label>
-                    
-                    <input type="checkbox" className="form-check-input form-checkbox" id="dropdownCheck" />
-                    <label className="form-check-label" for="dropdownCheck">
+                </div>
+                <div className="form-check">
+                    <input className="form-check-input" type="radio" name="exampleRadios" value="false" onChange={(e) => { setStatus(e.target.value) }} />
+                    <label className="form-check-label">
                         No
                     </label>
                 </div>
+            </div>
+
+            <div className="dropdown form-dropdown aid-input last-row">
+                <label className="form-label" > Aid status: </label>
+                <span className="d-flex align-content-center">
+                    <select className="form-select" aria-label="Default select example" onChange={(e) => { setAidstatus(e.target.value) }}>
+                        <option defaultValue={"on the way"}>On the way</option>
+                        <option value="accept">Accepted</option>
+                        <option value="receive">Received</option>
+                        <option value="delay">Delayed</option>
+                        <option value="cancel">Cancelled</option>
+                    </select>
+                </span>
             </div>
 
             <div className="d-flex justify-content-center">

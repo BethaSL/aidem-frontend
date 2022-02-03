@@ -23,19 +23,18 @@ export const Navbar = () => {
 							:
 							<>
 								{store.user_type == "organization" ?  
-								 	store.organization_name == "null" || store.organization_name == null ?
+								 	store.organization_name == "null" || store.organization_name == null || store.organization_name == "undefined" || store.organization_name == undefined ?
 										<li><a className="nav-link" href="/orgprofile">Profile</a></li>
 									: 
 										<li><a className="nav-link" href="/orgprofile">{store.organization_name}</a></li>
 									
-									:store.full_name == "null" || store.full_name == null ?
+									:store.full_name == "null" || store.full_name == null || store.organization_name == "undefined" || store.organization_name == undefined ?
 
 										<li><a className="nav-link" href="/aiderprofile">Profile</a></li>
 										: 
 										<li><a className="nav-link" href="/">{store.full_name}</a></li>
 								}
 								
-								<li><a className="nav-link" href="/aid">Aid them!</a></li>
 								<li><a className="nav-link" href="/" onClick={actions.logOut}>Sign out</a></li>
 							</>
 						}

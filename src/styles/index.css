@@ -149,6 +149,12 @@ h5 {
     max-width: 350px;
 }
 
+
+/*Aid view*/
+.aid-input {
+    margin-top: 15px;
+}
+
 /*Components*/
 /*Cards*/
 .card{
