@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-	console.log(store.usertype)
+
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-lg fixed-top">
 			<div className="container-fluid">

@@ -147,13 +147,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 						},
 						body: JSON.stringify(orgProfile)
 					});
-					let data = await response.json()
+					//let data = await response.json()
 					if(response.ok){
 						return response
 					}
 				}
 				catch (error) {
 					console.log("Changes not applied", error)
+				}
+			},
+
+			delProfile: async () => {
+				const store = getStore();
+				try {
+					let response = await fetch(`${store.urlBase}/delprofile`, {
+						method: "DELETE",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": `Bearer ${store.token}`
+						},
+					});
+					//let data = await response.json()
+					if(response.ok){
+						return response
+					}
+				}
+				catch (error) {
+					console.log("Account could not be deleted", error)
 				}
 			},
 			
