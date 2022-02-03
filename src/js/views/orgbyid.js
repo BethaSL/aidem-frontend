@@ -16,7 +16,7 @@ export const Orgbyid = () => {
 
 
     return (
-        store.orgbyid != undefined && (<div className="container footer-down fisrt-row">
+        store.orgbyid != undefined && (<div className="container footer-down first-row">
             <h3 className="text-center"> {store.orgbyid.organization_name} </h3>
             <div className="row first-single">
                 <div className="col-4">

@@ -6,25 +6,21 @@ import { useHistory } from "react-router-dom";
 export const Card = ({ item, section }) => {
     const { actions } = useContext(Context);
     let history = useHistory()
-    const handleMoreInfo = (id) =>{
+    const handleMoreInfo = (id) => {
         actions.getOrgbyid(id)
         history.push(`/organizations/${id}`)
 
     }
     return (
         <div className="card">
-            
             <img src="https://via.placeholder.com/300x200" className="card-img-top" alt="..." />
-            <div className="card-body">
-                <h5 className="card-title text-center">{item.organization_name}</h5>
-                <p className="card-text">
-                    {item.rif}
-                </p>
-                <div className="card_footer">
-                    <button type="button" onClick={() => handleMoreInfo(item.id)} className="btn button form-button"> 
-                    More Info 
-                    </button>
-                </div>
+
+            <div className="card-body text-center d-flex flex-column">
+                <h5 className="card-title">{item.organization_name}</h5>
+                <p className="card-text"> {item.rif} </p>
+                <button type="button" onClick={() => handleMoreInfo(item.id)} className="btn card-button">
+                    More Info
+                </button>
             </div>
         </div>
     )
@@ -33,5 +29,9 @@ export const Card = ({ item, section }) => {
 Card.propTypes = {
     item: PropTypes.object,
     section: PropTypes.string
-    
+
 };
+
+/*
+        
+*/

@@ -30,9 +30,7 @@ export const Aiderprofile = () => {
     }
 
     return (
-        <div className="container fisrt-row footer-down">
-
-
+        <div className="container first-row footer-down">
             <h3 className="text-center"> Aider's Profile  </h3>
             {error ? <h2 className="text-center alert"> Please fill all the fields </h2> : null}
             <div className="form-box">

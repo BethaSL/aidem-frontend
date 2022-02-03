@@ -25,7 +25,6 @@ export const Signin = () => {
 
         } else
      {
-
             setErrorPass(false)
             setErrorEmail(false)
             let loggedUser = {
@@ -44,7 +43,7 @@ export const Signin = () => {
     }
 
     return (
-        <div className="container fisrt-row footer-down">
+        <div className="container first-row footer-down">
             <h1 className="text-center"> Sign in </h1>
             <div className="form-box">
                 <form>

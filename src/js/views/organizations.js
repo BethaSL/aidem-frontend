@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext.js";
 import { Card } from "../component/card";
 
-
 export const Organizations = (props) => {
     const { store, actions } = useContext(Context);
     return (
@@ -16,7 +15,6 @@ export const Organizations = (props) => {
                     {store.children.map(item => {
                         return <Card key={item.rif} item={item} section="children"/>
                     })}
-                    
                 </div>
             </div>
             <div className="row elderly-cards">
