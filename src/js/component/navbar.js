@@ -4,7 +4,6 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-	console.log(store.usertype)
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-lg fixed-top">
 			<div className="container-fluid">
@@ -22,8 +21,12 @@ export const Navbar = () => {
 							</>
 							:
 							<>
-								{store.others ? console.log("ELDERLY") : console.log("NO ES ELDERLY")}
-								<li><a className="nav-link" href="/orgprofile">Profile</a></li>
+								{store.user_type == "organization" ?
+									<li><a className="nav-link" href="/orgprofile">Profile</a></li>
+									:
+									<li><a className="nav-link" href="/aiderprofile">Profile</a></li>
+								}
+
 								<li><a className="nav-link" href="/aid">Aid them!</a></li>
 								<li><a className="nav-link" href="/" onClick={actions.logOut}>Sign out</a></li>
 							</>
