@@ -6,62 +6,43 @@ export const Signin = () => {
     const { store, actions } = useContext(Context);
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [error, setError] = useState(false)
-    // const [errorPass, setErrorPass] = useState(false)
-    // const [errorEmail, setErrorEmail] = useState(false)
+    const [authError, setAuthError] = useState(false)
+    const [errorPass, setErrorPass] = useState(false)
+    const [errorEmail, setErrorEmail] = useState(false)
     let history = useHistory();
     const emailRegex = /\S+@\S+\.\S+/;
 
     const submitData = async () => {
-        // if(password.trim() == ""){
-        //     setErrorPass(true)
-        //     if(email.trim()== "") {}       
-        // }
-        // else
-        // {
-        //     setErrorPass(false)
-        // }
-
-
-        var EmaiIsValid = true;
-        var PasswordIsValid = true;
-        let loggedUser = {
-            email: email,
-            password: password
-        };
-        if ((password !== "")) {
-            document.getElementById('PassErr').innerHTML = '';
-
+        
+      
+       
+        if (emailRegex.test(email) !== true) {
+            setErrorEmail(true)
         }
-        else {
-            document.getElementById('PassErr').style.color = 'red';
-            document.getElementById('PassErr').innerHTML = 'Please Enter a Password';
-            document.getElementById("input-password").focus();
-            PasswordIsValid = false
-        }
+        else if (password.trim() == "") {
+            setErrorPass(true)
+            setErrorEmail(false)
 
-        if (emailRegex.test(email)) {
-            document.getElementById('emailerror').innerHTML = 'Your email is valid';
-            document.getElementById('emailerror').style.color = 'white';
-        } else {
-            document.getElementById('emailerror').style.color = 'red';
-            document.getElementById('emailerror').innerHTML = 'Please enter a Valid Email';
-            document.getElementById("input-id").focus();
-            EmaiIsValid = false;
-        }
+        } else
+     {
 
-        if ((PasswordIsValid == true) && EmaiIsValid == true ) {
+            setErrorPass(false)
+            setErrorEmail(false)
+            let loggedUser = {
+                email: email,
+                password: password
+            };
             let response = await actions.userAuth(loggedUser);
-            if (response.ok) {
-                setError(false)
-                history.push("/")
-            } else {
-                setError(true);
-            }
+            if (localStorage.token != null) {
+                 setAuthError(false)
+                 history.push("/")
+             } else {
+                  setAuthError(true);
 
+              }
         }
     }
-    
+
     return (
         <div className="container fisrt-row footer-down">
             <h1 className="text-center"> Sign in </h1>
@@ -77,8 +58,9 @@ export const Signin = () => {
                     </div>
 
                     <div>
-                        <p id='PassErr' className="text-center"></p>
-                        <p id='emailerror' className="text-center"></p>
+                        {errorEmail ? <div className="alert alert-danger text-center"> Check your Email </div> : null}
+                        {errorPass ? <div className="alert alert-danger text-center">Please enter your password</div> : null}
+                        {authError ? <div className="alert alert-danger text-center"> There was a Problem with yout credentials</div> : null}
                     </div>
 
                     <div className="d-flex justify-content-center">
@@ -86,7 +68,7 @@ export const Signin = () => {
                     </div>
                 </form>
 
-                {error ? <div className="alert alert-danger"> Authentication error </div> : null}
+
 
             </div>
         </div>
