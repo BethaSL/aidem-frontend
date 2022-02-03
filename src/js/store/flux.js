@@ -10,9 +10,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			bankData: [],
 			organizations: [],
+			aiders: [],
 			email: localStorage.getItem("email") || undefined,
 			token: localStorage.getItem("token") || undefined,
-			user_type: localStorage.getItem("user_type") || undefined
+			user_type: localStorage.getItem("user_type") || undefined,
+			myOrgById: localStorage.getItem("myOrgById") || undefined,
+			orgbyid: undefined
 			
 		},
 		actions: {
@@ -32,6 +35,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(error)
 					}
 			},
+
+			getOrgbyid: async (id) => {
+				const store = getStore();
+				let orgbyid = store.organizations.filter((organization)=>
+					{
+						return organization.id === id
+					})
+					setStore({...store, orgbyid: orgbyid[0]})
+					localStorage.setItem("myOrgById", JSON.stringify(orgbyid));
+					// try {
+					// 	let response = await fetch(`${store.urlBase}/organizations/${id}`, {
+					// 		method: "GET",
+					// 		headers: {
+					// 			 "Content-Type": "application/json",
+					// 			},
+					// 	});
+					// 	let data = await response.json()
+					// 	setStore({...store, orgbyid: data.results});
+					// }
+					// catch (error) {
+					// 	console.log(error)
+					// }
+			},
+
 			getCountries: async () => {
 				const store = getStore();		
 				try{
@@ -47,6 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error)
 				}
 			},
+			
 			getDataOrgType: async endpoint => {
 				const store = getStore();
 					try {
@@ -78,7 +106,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok){
 						setStore({
 							...store,
-							token:data.token, email:data.email, usertype: data.usertype
+							token:data.token, email:data.email, user_type:data.user_type
 						})
 						localStorage.setItem("token", data.token)
 						localStorage.setItem("email", data.email)
@@ -143,7 +171,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					//let data = await response.json()
 					if(response.ok){
 						return response
-
 					}
 				}
 				catch (error) {
@@ -157,7 +184,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("token")
 				localStorage.removeItem("email")
 				localStorage.removeItem("user_type")
-			}
+			},
 		}
 	};
 };

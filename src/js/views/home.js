@@ -3,12 +3,15 @@ import Carousel from 'react-bootstrap/Carousel'
 import Foto1 from "../../img/foto1.jpg";
 import Foto2 from "../../img/foto2.jpg";
 import Foto3 from "../../img/foto3.jpg";
+import { useContext, useState } from "react";
+import { Context } from "../store/appContext";
 import Money from "../../img/money.png";
 import Supplies from "../../img/supplies.png";
 import Events from "../../img/events.png";
 import Car from "../../img/car.png";
 
 export const Home = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="container fisrt-row">
 			<div className="row carrusel">
@@ -52,21 +55,21 @@ export const Home = () => {
 			<div className="row carrusel">
 				<h3> Achievements</h3>
 				<div className="col">
-					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> 45 </strong> </h6>
+					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> {store.organizations.length} </strong> </h6>
 					<h2>Organizations</h2>
-					<p>We are proud to be helping so many organizations that trust us every day to handdle their adis!</p>
+					<p>We are proud to be helping so many organizations that trust us every day to handdle their aids!</p>
 				</div>
 
 				<div className="col-lg-3">
-					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> 93 </strong> </h6>
+					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> {store.aiders.length}</strong> </h6>
 					<h2>Aiders</h2>
-					<p>Thank you to aour Aiders who are always giving a hand on every way possible!</p>
+					<p>Thank you to our Aiders who are always giving a hand on every way possible!</p>
 				</div>
 
 				<div className="col-lg-3">
-					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> $700 </strong> </h6>
-					<h2>Financial Aid</h2>
-					<p>So far this is what we have collected for our different organizations.</p>
+					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> {store.countries.length} </strong> </h6>
+					<h2>Countries</h2>
+					<p>Our Aiders and Organizations come from accross the world. <span><strong>We are global!</strong></span></p>
 				</div>
 
 				<div className="col-lg-3">
