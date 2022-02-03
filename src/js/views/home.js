@@ -4,7 +4,9 @@ import Foto1 from "../../img/foto1.jpg";
 import Foto2 from "../../img/foto2.jpg";
 import Foto3 from "../../img/foto3.jpg";
 import Money from "../../img/money.png";
-
+import Supplies from "../../img/supplies.png";
+import Events from "../../img/events.png";
+import Car from "../../img/car.png";
 
 export const Home = () => {
 	return (
@@ -49,30 +51,26 @@ export const Home = () => {
 
 			<div className="row carrusel">
 				<h3> Achievements</h3>
-				<div className="col-lg-3">
-					<svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
+				<div className="col">
+					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> 45 </strong> </h6>
 					<h2>Organizations</h2>
 					<p>We are proud to be helping so many organizations that trust us every day to handdle their adis!</p>
 				</div>
 
 				<div className="col-lg-3">
-					<svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
+					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> 93 </strong> </h6>
 					<h2>Aiders</h2>
 					<p>Thank you to aour Aiders who are always giving a hand on every way possible!</p>
 				</div>
 
 				<div className="col-lg-3">
-					<svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
+					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> $700 </strong> </h6>
 					<h2>Financial Aid</h2>
 					<p>So far this is what we have collected for our different organizations.</p>
 				</div>
 
 				<div className="col-lg-3">
-					<svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
+					<h6 className="rounded-circle text-center display-1 home-circle"> <strong> 120 </strong> </h6>
 					<h2>Volunteer Hours</h2>
 					<p className="last-row">This is the amount of of time dedicated by our Aiders to our Organizations. </p>
 				</div>
@@ -80,29 +78,25 @@ export const Home = () => {
 
 			<div className="row">
 				<h3>How to participate?</h3>
-				<hr className="featurette-divider" />
-
 				<div className="row featurette">
-					<div className="col-md-7">
+					<div className="col">
 						<h2>Financial aid</h2>
 						<p className="lead">If you are a registered member you can send money to our Organizations.</p>
 					</div>
-					<div className="col-md-5">
-						<svg className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+					<div className="col-4">
+						<img src={Money} className="d-flex justify-content-between" width="350" height="350" />
 					</div>
 				</div>
 
 				<hr className="featurette-divider" />
 
 				<div className="row featurette">
-					<div className="col-md-7 order-md-2">
-						<h2 className="featurette-heading">Oh yeah, it is that good. <span className="text-muted">See for yourself.</span></h2>
-						<p className="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+					<div className="col order-md-2">
+						<h2 className="featurette-heading">Supplies</h2>
+						<p className="lead">As a registred member you can provide food, clothes (in good state) or any kind of good that can be useful to our Organizations.</p>
 					</div>
 					<div className="col-md-5 order-md-1">
-						<svg className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+						<img src={Supplies} className="d-flex justify-content-between" width="350" height="350" />
 					</div>
 				</div>
 
@@ -110,16 +104,25 @@ export const Home = () => {
 
 				<div className="row featurette">
 					<div className="col-md-7">
-						<h2 className="featurette-heading">And lastly, this one. <span className="text-muted">Checkmate.</span></h2>
-						<p className="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+						<h2 className="featurette-heading">Events</h2>
+						<p className="lead">Our Adiers can participate or create events with our Organizations. It can be a meal or just give some company.</p>
 					</div>
 					<div className="col-md-5">
-						<svg className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+						<img src={Events} className="d-flex justify-content-between" width="350" height="350" />
 					</div>
 				</div>
 
-				<hr className="featurette-divider"></hr>
+				<hr className="featurette-divider" />
+
+				<div className="row featurette">
+					<div className="col order-md-2">
+						<h2 className="featurette-heading">Rides</h2>
+						<p className="lead">When you become an Aider you can choose to be contacted by our Organizations and plan a ride to somewhere they need.</p>
+					</div>
+					<div className="col-md-5 order-md-1">
+						<img src={Car} className="d-flex justify-content-between" width="350" height="350" />
+					</div>
+				</div>
 			</div>
 		</div>
 

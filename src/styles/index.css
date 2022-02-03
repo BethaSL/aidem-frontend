@@ -66,8 +66,15 @@ h5 {
     margin-right: 15px;
 }
 
-.rounded-circle{
+.home-circle {
+    color: var(--color-5);
+    background: var(--color-2);
     margin-top: 5px;
+    height: 200px;
+    width: 200px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 /*Footer*/

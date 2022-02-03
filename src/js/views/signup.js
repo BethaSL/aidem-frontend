@@ -58,8 +58,6 @@ export const Signup = () => {
         }
     }
 
-    console.log(user_type, email, password)
-
     return (
         <div className="container fisrt-row footer-down">
             <h1 className="text-center"> Sign up </h1>
