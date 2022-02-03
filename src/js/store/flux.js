@@ -12,6 +12,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			organizations: [],
 			email: localStorage.getItem("email") || undefined,
 			token: localStorage.getItem("token") || undefined,
+			user_type: localStorage.getItem("user_type") || undefined,
+			myOrgById: localStorage.getItem("myOrgById") || undefined,
 			orgbyid: undefined
 			
 		},
@@ -35,14 +37,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getOrgbyid: async (id) => {
 				const store = getStore();
-				console.log(id)
 				let orgbyid = store.organizations.filter((organization)=>
 					{
 						return organization.id === id
 					})
-					console.log(orgbyid)
 					setStore({...store, orgbyid: orgbyid[0]})
-
+					localStorage.setItem("myOrgById", JSON.stringify(orgbyid));
 					// try {
 					// 	let response = await fetch(`${store.urlBase}/organizations/${id}`, {
 					// 		method: "GET",
@@ -105,10 +105,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok){
 						setStore({
 							...store,
-							token:data.token, email:data.email
+							token:data.token, email:data.email, user_type:data.user_type
 						})
 						localStorage.setItem("token", data.token)
 						localStorage.setItem("email", data.email)
+						localStorage.setItem("user_type", data.user_type)
 						return(response)
 					}
 				}
@@ -169,7 +170,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					//let data = await response.json()
 					if(response.ok){
 						return response
-
 					}
 				}
 				catch (error) {
@@ -182,6 +182,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({...store, token:undefined, email:undefined})
 				localStorage.removeItem("token")
 				localStorage.removeItem("email")
+				localStorage.removeItem("user_type")
 			},
 		}
 	};

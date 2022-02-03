@@ -27,7 +27,7 @@ export const Orgbyid = () => {
                     <p>{store.orgbyid.description}</p>
                     <div className="d-flex justify-content-between">
                         <div>Email:</div>
-                        <div>{store.orgbyid.email}</div>
+                        <div>{store.orgbyid.user.email}</div>
                     </div>
                     <div className="d-flex justify-content-between">
                         <div>Address:</div>
