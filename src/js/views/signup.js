@@ -58,7 +58,7 @@ export const Signup = () => {
     }
 
     return (
-        <div className="container fisrt-row">
+        <div className="container fisrt-row footer-down">
             <h1 className="text-center"> Sign up </h1>
             <div className="form-box">
                 <form>

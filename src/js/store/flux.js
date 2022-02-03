@@ -1,9 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			// urlBase: "http://localhost:8080",
-			urlBase2:"https://restcountries.com/v3.1/name",
-			urlBase:"https://8080-bethasl-aidembackend-i83xwrejjz0.ws-us30.gitpod.io",
+			urlBase: "http://localhost:8080",
+			urlCountries:"https://restcountries.com/v3.1/all",
+			countries: [],
 			children: [],
 			elderly: [],
 			others: [],
@@ -30,6 +30,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					catch (error) {
 						console.log(error)
 					}
+			},
+			getCountries: async () => {
+				const store = getStore();		
+				try{
+					let response = await fetch(`${store.urlCountries}`)
+					let data = await response.json()
+					let allcountries = [];
+					for(let name of data){
+						allcountries.push(name.name.common)
+					}
+					setStore({...store,countries:allcountries.sort()})
+				}
+				catch (error) {
+					console.log(error)
+				}
 			},
 			getDataOrgType: async endpoint => {
 				const store = getStore();

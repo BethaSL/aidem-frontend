@@ -47,7 +47,7 @@ export const Orgprofile = () => {
                 history.push("/")
             }
         }
-        else{
+        else {
             setErrorG(true)
         }
     }
@@ -95,7 +95,19 @@ export const Orgprofile = () => {
 
             <div className="form-box">
                 <label className="form-label" htmlFor="input-address"> Address: </label>
-                <span> <textarea className="form-control input-box" rows="3" value={address} onChange={(e) => { setAddress(e.target.value) }}></textarea></span>
+                <div className="dropdown form-dropdown form-box">
+                    <span className="input-box">
+                        <select className="form-select input-box" aria-label="Default select example">
+                            <option>Select Country</option>
+                            {store.countries.map((city) => {
+                                return (
+                                    <option key={city} value={`${city}`}>{city}</option>
+                                )
+                            })}
+                        </select>
+                        <textarea className="form-control input-box" rows="1" value={address} onChange={(e) => { setAddress(e.target.value) }}></textarea>
+                    </span>
+                </div>
             </div>
 
             <div className="form-box">
@@ -124,7 +136,6 @@ export const Orgprofile = () => {
                 </div>
             </div>
 
-
             <h4 className="text-center"> Bank Data </h4>
             <div className="form-box">
                 <label className="form-label"> Bank's Name: </label>
@@ -135,10 +146,33 @@ export const Orgprofile = () => {
                 <label className="form-label"> Account number: </label>
                 <span> <input className="input-box" required placeholder="Account number" value={accountnum} onChange={(e) => { setAccountnum(e.target.value) }} /> </span>
             </div>
+
             <div className="d-flex justify-content-center">
                 <button type="button" onClick={submitData} className="btn form-button"> Save </button>
-            </div>
+                <span>
+                    <button type="button" className="btn delete-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Delete Account
+                    </button>
 
+                    <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal-dialog">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">Delete Account</h5>
+                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div className="modal-body">
+                                    Are you sure you want to delete your account?
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Yes</button>
+                                    <button type="button" className="btn form-button">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </div>
         </div>
     )
 

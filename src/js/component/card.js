@@ -14,9 +14,6 @@ export const Card = ({ item, section }) => {
                 </p>
                 <div className="card_footer">
                     <button type="button" className="btn button form-button" href="#"> More Info </button>
-                    <a href="#" className="btn card__heart">
-                        <i className="fa fa-heart" />
-                    </a>
                 </div>
             </div>
         </div>

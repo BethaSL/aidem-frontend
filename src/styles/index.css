@@ -8,10 +8,9 @@
 }
 
 /*Carrusel*/
-.carousel {
-    margin-bottom: 15px;
+.carrusel {
+    margin-bottom: 40px;
 }
-
 
 /*General settings*/
 h1{
@@ -46,7 +45,7 @@ h5 {
 }
 
 .top-row {
-    margin-top: 15px;;
+    margin-top: 15px;
 }
 
 .last-row {
@@ -58,15 +57,10 @@ h5 {
 .navbar {
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 5px;
     background: var(--color-5);
 }
 
-.navbar-logo {
-    margin-right: 50px;
-}
-
-.navbar-link {
+.nav-link {
     color: var(--color-4);
     text-decoration: unset;
     margin-right: 15px;
@@ -92,6 +86,10 @@ h5 {
     text-decoration: unset;
 }
 
+.footer-down{
+    height: 90vh;
+}
+
 /*Form*/
 .form-box {
     justify-content: center;
@@ -113,7 +111,6 @@ h5 {
     background: var(--color-4);
     color: var(--color-5);
     margin: 5px;
-    font-weight: bold;
 }
 
 .form-check-label {
@@ -126,6 +123,13 @@ h5 {
     display: flex;
     overflow-x: scroll;
     margin-bottom: 50px;
+}
+
+/*Org profile*/
+.delete-button {
+    background: var(--color-1);
+    color: var(--color-5);
+    margin: 5px;
 }
 
 /*My profile view*/
@@ -144,19 +148,6 @@ h5 {
 
 .card__button{
     position: relative;
-    background: white;
-    color: blue;
-}
-
-.card__heart{
-    position: absolute;
-    right: 0;
-    margin-right: 20px;
-    background: white;
-    color: red;
-}
-
-.children-cards{
-    padding-top: 60px;
-    padding-bottom: 20px;
+    background: var(--color-4);
+    color: var(--color-5);
 }
