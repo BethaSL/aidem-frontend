@@ -46,19 +46,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					setStore({...store, orgbyid: orgbyid[0]})
 					localStorage.setItem("myOrgById", JSON.stringify(orgbyid));
-					// try {
-					// 	let response = await fetch(`${store.urlBase}/organizations/${id}`, {
-					// 		method: "GET",
-					// 		headers: {
-					// 			 "Content-Type": "application/json",
-					// 			},
-					// 	});
-					// 	let data = await response.json()
-					// 	setStore({...store, orgbyid: data.results});
-					// }
-					// catch (error) {
-					// 	console.log(error)
-					// }
 			},
 
 			getCountries: async () => {
