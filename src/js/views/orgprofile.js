@@ -13,7 +13,7 @@ export const Orgprofile = () => {
     const [phone, setPhone] = useState("");
     const [description, setDescription] = useState("")
     const [orgtype, setOrgtype] = useState("")
-    const [status, setStatus] = useState(true)
+    const [status, setStatus] = useState("true")
     const [errorG, setErrorG] = useState(false)
     let history = useHistory()
 
@@ -37,7 +37,7 @@ export const Orgprofile = () => {
                 phone: phone,
                 address: address,
                 person_oncharge: persononcharge,
-                status: status,
+                status: JSON.parse(status),
                 bank_name: bankname,
                 account_number: accountnum
             };
@@ -50,6 +50,14 @@ export const Orgprofile = () => {
         else {
             setErrorG(true)
         }
+    }
+
+    const deleteProfile = async () =>{
+       let response = await actions.delProfile();
+       if(response.ok){
+           actions.logOut()
+           history.push("/")
+       }
     }
 
     return (
@@ -120,20 +128,15 @@ export const Orgprofile = () => {
                 <span> <input className="form-control form-control-sm" type="file" /> </span>
             </div>
 
-            <div className="form-box">
-                <label className="form-label"> Organization's status: </label>
-                <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="true" checked onChange={(e) => { setStatus(e.target.value) }} />
-                    <label className="form-check-label">
-                        Active
-                    </label>
-                </div>
-                <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="false" onChange={(e) => { setStatus(e.target.value) }} />
-                    <label className="form-check-label">
-                        Inactive
-                    </label>
-                </div>
+            <div className="dropdown form-dropdown form-box">
+                <label className="form-label" htmlFor="dd-user-type" >Organization status: </label>
+                <span className="">
+                    <select className="form-select input-box" aria-label="Default select example" onChange={(e) => { setStatus(e.target.value) }}>
+                        <option defaultValue={"Select organization type"}>Select organization type</option>
+                        <option value="true">Active</option>
+                        <option value="false">Inactive</option>
+                    </select>
+                </span>
             </div>
 
             <h4 className="text-center"> Bank Data </h4>
@@ -154,7 +157,7 @@ export const Orgprofile = () => {
                         Delete Account
                     </button>
 
-                    <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog">
                             <div className="modal-content">
                                 <div className="modal-header">
@@ -165,7 +168,7 @@ export const Orgprofile = () => {
                                     Are you sure you want to delete your account?
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary"  onClick={actions.delProfile} data-bs-dismiss="modal">Yes</button>
+                                    <button type="button" className="btn btn-secondary" onClick={deleteProfile} data-bs-dismiss="modal">Yes</button>
                                     <button type="button" className="btn form-button">No</button>
                                 </div>
                             </div>

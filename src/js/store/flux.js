@@ -162,9 +162,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"Authorization": `Bearer ${store.token}`
 						},
 					});
-					//let data = await response.json()
+					console.log(response.ok)//let data = await response.json()
 					if(response.ok){
+						// logOut()
 						return response
+						
 					}
 				}
 				catch (error) {
@@ -199,6 +201,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("token")
 				localStorage.removeItem("email")
 				localStorage.removeItem("user_type")
+				localStorage.removeItem("organization_name")
+				localStorage.removeItem("full_name")
+
 			},
 		}
 	};
