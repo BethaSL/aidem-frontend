@@ -15,7 +15,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: localStorage.getItem("token") || undefined,
 			user_type: localStorage.getItem("user_type") || undefined,
 			myOrgById: localStorage.getItem("myOrgById") || undefined,
-			orgbyid: undefined
+			orgbyid: undefined,
+			full_name: localStorage.getItem("full_name") || undefined,
+			organization_name: localStorage.getItem("organization_name") || undefined
 			
 		},
 		actions: {
@@ -106,11 +108,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok){
 						setStore({
 							...store,
-							token:data.token, email:data.email, user_type:data.user_type
+							token:data.token, 
+							email:data.email, 
+							user_type: data.user_type,
+							full_name: data.full_name,
+							organization_name: data.organization_name
 						})
 						localStorage.setItem("token", data.token)
 						localStorage.setItem("email", data.email)
 						localStorage.setItem("user_type", data.user_type)
+						localStorage.setItem("full_name", data.full_name)
+						localStorage.setItem("organization_name", data.organization_name)
 						return(response)
 					}
 				}
