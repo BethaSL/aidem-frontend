@@ -16,9 +16,9 @@ export const Orgbyid = () => {
 
 
     return (
-        store.orgbyid != undefined && (<div className="container fisrt-row">
-            <h3> {store.orgbyid.organization_name} </h3>
-            <div className="row">
+        store.orgbyid != undefined && (<div className="container footer-down fisrt-row">
+            <h3 className="text-center"> {store.orgbyid.organization_name} </h3>
+            <div className="row ">
                 <div className="col-4">
                     <img src="https://via.placeholder.com/300x200" className="myprofile-pic" alt="..." />
                 </div>
@@ -45,7 +45,7 @@ export const Orgbyid = () => {
                         <div>Phone:</div>
                         <div>{store.orgbyid.account_number}</div>
                     </div>
-                     <div className="d-flex justify-content-between">
+                     <div className="d-flex justify-content-between last-row">
                         <div>Organization type:</div>
                         <div>{store.orgbyid.account_number}</div>
                     </div>
