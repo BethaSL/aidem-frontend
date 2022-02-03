@@ -165,7 +165,7 @@ export const Orgprofile = () => {
                                     Are you sure you want to delete your account?
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Yes</button>
+                                    <button type="button" className="btn btn-secondary"  onClick={actions.delProfile} data-bs-dismiss="modal">Yes</button>
                                     <button type="button" className="btn form-button">No</button>
                                 </div>
                             </div>
