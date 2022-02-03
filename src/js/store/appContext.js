@@ -23,6 +23,7 @@ const injectContext = PassedComponent => {
 
 		useEffect(() => {
 			state.actions.getData("organizations");
+			state.actions.getData("aiders");
 			state.actions.getDataOrgType("elderly");
 			state.actions.getDataOrgType("children");
 			state.actions.getDataOrgType("others");
