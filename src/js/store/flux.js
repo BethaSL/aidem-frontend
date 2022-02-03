@@ -12,7 +12,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			organizations: [],
 			email: localStorage.getItem("email") || undefined,
 			token: localStorage.getItem("token") || undefined,
-			user_type: localStorage.getItem("user_type") || undefined
+			user_type: localStorage.getItem("user_type") || undefined,
+			full_name: localStorage.getItem("full_name") || undefined,
+			organization_name: localStorage.getItem("organization_name") || undefined
 			
 		},
 		actions: {
@@ -78,11 +80,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok){
 						setStore({
 							...store,
-							token:data.token, email:data.email, usertype: data.usertype
+							token:data.token, 
+							email:data.email, 
+							user_type: data.user_type,
+							full_name: data.full_name,
+							organization_name: data.organization_name
 						})
 						localStorage.setItem("token", data.token)
 						localStorage.setItem("email", data.email)
 						localStorage.setItem("user_type", data.user_type)
+						localStorage.setItem("full_name", data.full_name)
+						localStorage.setItem("organization_name", data.organization_name)
 						return(response)
 					}
 				}
@@ -157,6 +165,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("token")
 				localStorage.removeItem("email")
 				localStorage.removeItem("user_type")
+				localStorage.removeItem("full_name")
+				localStorage.removeItem("organization_name")
 			}
 		}
 	};
