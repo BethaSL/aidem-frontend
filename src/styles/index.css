@@ -65,12 +65,14 @@ h5 {
     margin-bottom: 40px;
 }
 
+.carrusel-img {
+    width: 800px;
+    height: auto;
+}
+
 .carrusel-caption {
-    color: var(--color-1);
-    background: #97c8eb;
-    top: 0;
     left: center;
-    bottom: auto;
+    top: -30px;
 }
 
 .home-circle {

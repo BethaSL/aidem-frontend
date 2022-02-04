@@ -19,40 +19,34 @@ export const Home = () => {
 				<Carousel fade>
 					<Carousel.Item>
 						<img
-							className="d-block"
+							className="d-block img-fluid carrusel-img mx-auto"
 							src={Foto1}
 							alt="First slide"
 						/>
-						<Carousel.Caption className="carrusel-caption">
-							<p className="display-6"><strong>
-								These pair was adopted at the Doggies event!
-							</strong></p>
+						<Carousel.Caption>
+							<h4>These pair was adopted at the Doggies event!</h4>
 						</Carousel.Caption>
 					</Carousel.Item>
 
 					<Carousel.Item>
 						<img
-							className="d-block"
-							src={Foto2}
-							alt="Second slide"
-						/>
-						<Carousel.Caption className="carrusel-caption">
-							<p className="display-6"><strong>
-								Granny's is celebrating 5 years! Contact them to participate.
-							</strong></p>
-						</Carousel.Caption>
-					</Carousel.Item>
-
-					<Carousel.Item>
-						<img
-							className="d-block"
+							className="d-block img-fluid carrusel-img mx-auto"
 							src={Foto3}
 							alt="Third slide"
 						/>
 						<Carousel.Caption className="carrusel-caption">
-							<p className="display-6"><strong>
-								Remember we are collecting toys for the Ronald McDonalds event next month.
-							</strong></p>
+							<h4>Remember we are collecting toys for the Ronald McDonalds event next month.</h4>
+						</Carousel.Caption>
+					</Carousel.Item>
+
+					<Carousel.Item>
+						<img
+							className="d-block img-fluid carrusel-img mx-auto"
+							src={Foto2}
+							alt="Second slide"
+						/>
+						<Carousel.Caption>
+							<h4> Granny's is celebrating 5 years! Contact them to participate.</h4>
 						</Carousel.Caption>
 					</Carousel.Item>
 				</Carousel>
