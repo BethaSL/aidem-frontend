@@ -129,12 +129,6 @@ h5 {
     margin: 5px;
 }
 
-/*My profile view*/
-.myprofile-pic {
-    min-width: 350px;
-    max-width: 350px;
-}
-
 /*Aid view*/
 .aid-input {
     margin-top: 15px;
@@ -143,6 +137,11 @@ h5 {
 /*Single org view*/
 .first-single {
     margin-top: 15px;
+}
+
+.single-img {
+    width: 90%;
+    height: auto;
 }
 
 /*Components*/

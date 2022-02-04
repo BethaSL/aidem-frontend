@@ -20,11 +20,11 @@ export const Home = () => {
 					<Carousel.Item>
 						<img
 							className="d-block img-fluid carrusel-img mx-auto"
-							src={Foto1}
-							alt="First slide"
+							src={Foto2}
+							alt="Second slide"
 						/>
 						<Carousel.Caption>
-							<h4>These pair was adopted at the Doggies event!</h4>
+							<h4> Granny's is celebrating 5 years! Contact them to participate.</h4>
 						</Carousel.Caption>
 					</Carousel.Item>
 
@@ -42,11 +42,11 @@ export const Home = () => {
 					<Carousel.Item>
 						<img
 							className="d-block img-fluid carrusel-img mx-auto"
-							src={Foto2}
-							alt="Second slide"
+							src={Foto1}
+							alt="First slide"
 						/>
 						<Carousel.Caption>
-							<h4> Granny's is celebrating 5 years! Contact them to participate.</h4>
+							<h4>These pair was adopted at the Doggies event!</h4>
 						</Carousel.Caption>
 					</Carousel.Item>
 				</Carousel>
