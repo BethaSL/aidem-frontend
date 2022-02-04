@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import Carousel from 'react-bootstrap/Carousel'
 import Foto1 from "../../img/foto1.jpg";
-import Foto2 from "../../img/foto2.jpeg";
+import Foto2 from "../../img/foto2.jpg";
 import Foto3 from "../../img/foto3.jpg";
 import Money from "../../img/money.png";
 import Supplies from "../../img/supplies.png";
@@ -14,29 +14,28 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div className="container first-row">
-			<p className="hola"> Hola, {store.organization_name}</p>
 			<div className="row carrusel">
 				<h3>News</h3>
 				<Carousel fade>
 					<Carousel.Item>
 						<img
-							className="d-block w-100"
+							className="d-block"
 							src={Foto1}
 							alt="First slide"
 						/>
-						<Carousel.Caption>
-							<h4 className="carrusel-caption">These furry friends were adopted during our latest event with Happy Doggies!</h4>
+						<Carousel.Caption className="carrusel-caption">
+							<h4>These furry friends were adopted during our latest event with Happy Doggies!</h4>
 						</Carousel.Caption>
 					</Carousel.Item>
 
 					<Carousel.Item>
 						<img
-							className="d-block w-100"
+							className="d-block"
 							src={Foto2}
 							alt="Second slide"
 						/>
-						<Carousel.Caption>
-							<h4 className="carrusel-caption"><span><strong> Aider! </strong></span>
+						<Carousel.Caption className="carrusel-caption">
+							<h4><span><strong> Aider! </strong></span>
 								Next week Granny's is celebrating its 5 years aniversary, contact them to participate or collaborate as you can!
 							</h4>
 						</Carousel.Caption>
@@ -44,12 +43,12 @@ export const Home = () => {
 
 					<Carousel.Item>
 						<img
-							className="d-block w-100"
+							className="d-block"
 							src={Foto3}
 							alt="Third slide"
 						/>
-						<Carousel.Caption>
-							<h4 className="carrusel-caption">
+						<Carousel.Caption className="carrusel-caption">
+							<h4>
 								Remember we are collecting toys for the Ronald McDonalds event next month.
 							</h4>
 						</Carousel.Caption>

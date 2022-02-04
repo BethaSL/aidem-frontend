@@ -67,10 +67,10 @@ h5 {
 
 .carrusel-caption {
     font-size: x-large;
-}
-
-.hola {
-    color: var(--color-2);
+    color: var(--color-5);
+    top: 40px;
+    right: 0;
+    bottom: auto;
 }
 
 .home-circle {
