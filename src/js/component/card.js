@@ -17,7 +17,6 @@ export const Card = ({ item, section }) => {
 
             <div className="card-body text-center d-flex flex-column">
                 <h5 className="card-title">{item.organization_name}</h5>
-                <p className="card-text"> {item.rif} </p>
                 <button type="button" onClick={() => handleMoreInfo(item.id)} className="btn card-button">
                     More Info
                 </button>
