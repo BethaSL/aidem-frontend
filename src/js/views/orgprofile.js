@@ -46,6 +46,7 @@ export const Orgprofile = () => {
                 response = await actions.orgProfile(orgProfile); 
             }
             else{
+                console.log(method)
                 response = await actions.editProfile(orgProfile); 
             }
             
@@ -117,11 +118,11 @@ export const Orgprofile = () => {
                 <label className="form-label" htmlFor="input-address"> Address: </label>
                 <div className="dropdown form-dropdown form-box">
                     <span className="input-box">
-                        <select className="form-select input-box" aria-label="Default select example">
-                            <option value={address} onChange={(e) => { setAddress(e.target.value) }}>Select Country</option>
+                        <select value={address} onChange={(e) => { setAddress(e.target.value) }} className="form-select input-box"   aria-label="Default select example">
+                            <option >Select Country</option>
                             {store.countries.map((city) => {
                                 return (
-                                    <option value={address} onChange={(e) => { setAddress(e.target.value) }} key={city}>{city}</option>
+                                    <option  key={city}>{city}</option>
                                 )
                             })}
                         </select>

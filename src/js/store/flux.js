@@ -173,6 +173,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
+			editProfile: async orgProfile => {
+				const store = getStore();
+				try {
+					let response = await fetch(`${store.urlBase}/orgprofile`, {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": `Bearer ${store.token}`
+						},
+						body: JSON.stringify(orgProfile)
+					});
+					//let data = await response.json()
+					if (response.ok) {
+						return response
+					}
+				}
+				catch (error) {
+					console.log("Changes not applied", error)
+				}
+			},
+
 			delProfile: async () => {
 				const store = getStore();
 				try {
@@ -218,7 +239,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			logOut: () => {
 				const store = getStore();
-				setStore({ ...store, token: undefined, email: undefined })
+				setStore({ ...store, token: undefined, email: undefined, profile: undefined})
 				localStorage.removeItem("token")
 				localStorage.removeItem("email")
 				localStorage.removeItem("user_type")
