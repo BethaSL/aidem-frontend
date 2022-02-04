@@ -28,6 +28,7 @@ const injectContext = PassedComponent => {
 			state.actions.getDataOrgType("children");
 			state.actions.getDataOrgType("others");
 			state.actions.getCountries();
+			//state.actions.getProfileInfo()
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

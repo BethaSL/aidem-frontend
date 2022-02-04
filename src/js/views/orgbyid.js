@@ -43,11 +43,11 @@ export const Orgbyid = () => {
                     </div>
                     <div className="d-flex justify-content-between">
                         <div>Phone:</div>
-                        <div>{store.orgbyid.account_number}</div>
+                        <div>{store.orgbyid.phone}</div>
                     </div>
                      <div className="d-flex justify-content-between last-row">
-                        <div>Organization type:</div>
-                        <div>{store.orgbyid.account_number}</div>
+                        <div>Rif:</div>
+                        <div>{store.orgbyid.rif}</div>
                     </div>
                     <div className="d-flex justify-content-center">
                         <Link to="/aid">
