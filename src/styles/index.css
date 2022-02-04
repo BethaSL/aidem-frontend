@@ -66,10 +66,10 @@ h5 {
 }
 
 .carrusel-caption {
-    font-size: x-large;
-    color: var(--color-5);
-    top: 40px;
-    right: 0;
+    color: var(--color-1);
+    background: #97c8eb;
+    top: 0;
+    left: center;
     bottom: auto;
 }
 

@@ -113,7 +113,6 @@ export const Orgprofile = () => {
                                 )
                             })}
                         </select>
-                        <textarea className="form-control input-box" rows="1" value={address} onChange={(e) => { setAddress(e.target.value) }}></textarea>
                     </span>
                 </div>
             </div>
@@ -121,11 +120,6 @@ export const Orgprofile = () => {
             <div className="form-box">
                 <label className="form-label"> Organization's description: </label>
                 <span><textarea className="form-control input-box" rows="3" value={description} onChange={(e) => { setDescription(e.target.value) }}>Write a short review of your organization</textarea></span>
-            </div>
-
-            <div className="form-box">
-                <label className="form-label"> Add your Logo: </label>
-                <span> <input className="form-control form-control-sm" type="file" /> </span>
             </div>
 
             <div className="dropdown form-dropdown form-box">
