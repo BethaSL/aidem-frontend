@@ -69,6 +69,10 @@ h5 {
     font-size: x-large;
 }
 
+.hola {
+    color: var(--color-2);
+}
+
 .home-circle {
     color: var(--color-5);
     background: var(--color-3);
@@ -106,6 +110,14 @@ h5 {
     display: flex;
     overflow-x: scroll;
     margin-bottom: 50px;
+}
+
+.children-cards{
+    margin-top: 50px;
+}
+
+.org-titles {
+    margin-top: 80px;
 }
 
 /*Org profile*/

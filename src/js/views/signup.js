@@ -16,7 +16,6 @@ export const Signup = () => {
     const emailRegex = /\S+@\S+\.\S+/;
 
     const submitData = async () => {
-       
         if (emailRegex.test(email) !== true) {
             setErrorEmail(true)
         }
@@ -28,7 +27,6 @@ export const Signup = () => {
             seterrorUserType(true)
             setErrorPass(false)
             setErrorEmail(false)
-
         }
         else {
             seterrorUserType(false)
@@ -80,19 +78,14 @@ export const Signup = () => {
                     </div>
 
                     <div>
-
                         {errorEmail ? <div className="alert alert-danger text-center"> Check your Email </div> : null}
                         {errorPass ? <div className="alert alert-danger text-center"> Password Mismatch or Blank</div> : null}
                         {errorUserType ? <div className="alert alert-danger text-center">No User Type Selected</div> : null}
                         {errorExists ? <div className="alert alert-danger text-center">Email already in use.</div> : null}
-
                     </div>
 
-
                     <div className="d-flex justify-content-center">
-
                         <button type="button" onClick={submitData} className="btn form-button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="singup-button"> Sign up &raquo;</button>
-
                     </div>
 
                 </form>

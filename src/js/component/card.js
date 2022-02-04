@@ -31,7 +31,3 @@ Card.propTypes = {
     section: PropTypes.string
 
 };
-
-/*
-        
-*/

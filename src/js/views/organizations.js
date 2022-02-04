@@ -8,7 +8,7 @@ export const Organizations = (props) => {
         <div className="container first-row">
             <div className="row children-cards">
                 <h1 className="text-center"> Our Organizations</h1>
-                <h3>
+                <h3 className="org-titles">
                     Children Organizations
                 </h3>
                 <div className="borders">
@@ -18,7 +18,7 @@ export const Organizations = (props) => {
                 </div>
             </div>
             <div className="row elderly-cards">
-                <h3>
+                <h3 className="org-titles">
                     Elderly Organizations
                 </h3>
                 <div className="borders">
@@ -28,7 +28,7 @@ export const Organizations = (props) => {
                 </div>
             </div>
             <div className="row others-cards">
-                <h3>
+                <h3 className="org-titles">
                     Other Organizations
                 </h3>
                 <div className="borders">

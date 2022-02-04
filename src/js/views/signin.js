@@ -12,10 +12,7 @@ export const Signin = () => {
     let history = useHistory();
     const emailRegex = /\S+@\S+\.\S+/;
 
-    const submitData = async () => {
-        
-      
-       
+    const submitData = async () => {      
         if (emailRegex.test(email) !== true) {
             setErrorEmail(true)
         }
@@ -66,9 +63,6 @@ export const Signin = () => {
                         <button type="button" onClick={submitData} className="btn last-row form-button" id="singup-button"> Sign in &raquo;</button>
                     </div>
                 </form>
-
-
-
             </div>
         </div>
     )

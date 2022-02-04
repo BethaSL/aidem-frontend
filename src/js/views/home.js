@@ -1,10 +1,10 @@
 import React from "react";
+import { useContext, useState } from "react";
+import { Context } from "../store/appContext";
 import Carousel from 'react-bootstrap/Carousel'
 import Foto1 from "../../img/foto1.jpg";
 import Foto2 from "../../img/foto2.jpeg";
 import Foto3 from "../../img/foto3.jpg";
-import { useContext, useState } from "react";
-import { Context } from "../store/appContext";
 import Money from "../../img/money.png";
 import Supplies from "../../img/supplies.png";
 import Events from "../../img/events.png";
@@ -14,6 +14,7 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div className="container first-row">
+			<p className="hola"> Hola, {store.organization_name}</p>
 			<div className="row carrusel">
 				<h3>News</h3>
 				<Carousel fade>
@@ -132,6 +133,5 @@ export const Home = () => {
 				</div>
 			</div>
 		</div>
-
 	)
 };

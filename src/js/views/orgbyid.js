@@ -14,7 +14,6 @@ export const Orgbyid = () => {
         }
     }, [store.organizations, store.orgbyid]);
 
-
     return (
         store.orgbyid != undefined && (<div className="container footer-down first-row">
             <h3 className="text-center"> {store.orgbyid.organization_name} </h3>
@@ -64,9 +63,7 @@ export const Orgbyid = () => {
                         </Link>
                     </div>
                 </div>
-
                 <div>
-
                 </div>
             </div>
         </div>)

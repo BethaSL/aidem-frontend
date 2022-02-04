@@ -7,7 +7,7 @@ export const Footer = () => (
 			<div className="col-2">
 				<h6><strong>Contact</strong></h6>
 				<ul className="nav flex-column">
-					<li className="footer-link"> <a href="mailto:contact@aidem.com"> contact@aidem.com </a> </li>
+					<li className="footer-link"> <Link to="mailto:contact@aidem.com"> contact@aidem.com </Link> </li>
 					<li> 555 555 555 </li>
 				</ul>
 			</div>
