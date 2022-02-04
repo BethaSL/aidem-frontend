@@ -29,8 +29,10 @@ export const Signin = () => {
                 password: password
             };
             let response = await actions.userAuth(loggedUser);
+          
             if (localStorage.token != null) {
                  setAuthError(false)
+                 actions.getProfileInfo()
                  history.push("/")
              } else {
                   setAuthError(true);

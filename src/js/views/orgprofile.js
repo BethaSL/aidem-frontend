@@ -4,20 +4,20 @@ import { useHistory } from "react-router-dom"
 
 export const Orgprofile = () => {
     const { store, actions } = useContext(Context);
-    const [orgname, setOrgname] = useState("");
-    const [address, setAddress] = useState("");
-    const [rif, setRif] = useState("");
-    const [persononcharge, setPersononcharge] = useState("");
-    const [bankname, setBankname] = useState("");
-    const [accountnum, setAccountnum] = useState("");
-    const [phone, setPhone] = useState("");
-    const [description, setDescription] = useState("")
-    const [orgtype, setOrgtype] = useState("")
-    const [status, setStatus] = useState("true")
+    const [orgname, setOrgname] = useState(store.profile !== undefined ? store.profile.organization_name : "");
+    const [address, setAddress] = useState(store.profile !== undefined ? store.profile.address : "");
+    const [rif, setRif] = useState(store.profile !== undefined ? store.profile.rif : "");
+    const [persononcharge, setPersononcharge] = useState(store.profile !== undefined ? store.profile.person_oncharge : "");
+    const [bankname, setBankname] = useState(store.profile !== undefined ? store.profile.bank_name : "");
+    const [accountnum, setAccountnum] = useState(store.profile !== undefined ? store.profile.account_number : "");
+    const [phone, setPhone] = useState(store.profile !== undefined ? store.profile.phone : "");
+    const [description, setDescription] = useState(store.profile !== undefined ? store.profile.description : "")
+    const [orgtype, setOrgtype] = useState(store.profile !== undefined ? store.profile.organization_type : "")
+    const [status, setStatus] = useState(store.profile !== undefined ? store.profile.status : "")
     const [errorG, setErrorG] = useState(false)
     let history = useHistory()
 
-    const submitData = async () => {
+    const submitData = async (method) => {
         if (description.trim() != "" ||
             orgtype.trim() != "" ||
             orgname.trim() != "" ||
@@ -41,10 +41,22 @@ export const Orgprofile = () => {
                 bank_name: bankname,
                 account_number: accountnum
             };
-            let response = await actions.orgProfile(orgProfile);
+            let response;
+            if (method==="POST"){
+                response = await actions.orgProfile(orgProfile); 
+            }
+            else{
+                response = await actions.editProfile(orgProfile); 
+            }
+            
             if (response.ok) {
-                setErrorG(false)
-                history.push("/")
+                let responsesGetData = await actions.getData("organizations")
+                if (responsesGetData) {
+                    actions.getProfileInfo()
+                    setErrorG(false)
+                    history.push("/")
+                }
+
             }
         }
         else {
@@ -52,12 +64,12 @@ export const Orgprofile = () => {
         }
     }
 
-    const deleteProfile = async () =>{
-       let response = await actions.delProfile();
-       if(response.ok){
-           actions.logOut()
-           history.push("/")
-       }
+    const deleteProfile = async () => {
+        let response = await actions.delProfile();
+        if (response.ok) {
+            actions.logOut()
+            history.push("/")
+        }
     }
 
     return (
@@ -106,14 +118,13 @@ export const Orgprofile = () => {
                 <div className="dropdown form-dropdown form-box">
                     <span className="input-box">
                         <select className="form-select input-box" aria-label="Default select example">
-                            <option>Select Country</option>
+                            <option value={address} onChange={(e) => { setAddress(e.target.value) }}>Select Country</option>
                             {store.countries.map((city) => {
                                 return (
-                                    <option key={city} value={`${city}`}>{city}</option>
+                                    <option value={address} onChange={(e) => { setAddress(e.target.value) }} key={city}>{city}</option>
                                 )
                             })}
                         </select>
-                        <textarea className="form-control input-box" rows="1" value={address} onChange={(e) => { setAddress(e.target.value) }}></textarea>
                     </span>
                 </div>
             </div>
@@ -123,16 +134,16 @@ export const Orgprofile = () => {
                 <span><textarea className="form-control input-box" rows="3" value={description} onChange={(e) => { setDescription(e.target.value) }}>Write a short review of your organization</textarea></span>
             </div>
 
-            <div className="form-box">
+            {/* <div className="form-box">
                 <label className="form-label"> Add your Logo: </label>
                 <span> <input className="form-control form-control-sm" type="file" /> </span>
-            </div>
+            </div> */}
 
             <div className="dropdown form-dropdown form-box">
                 <label className="form-label" htmlFor="dd-user-type" >Organization status: </label>
                 <span className="">
                     <select className="form-select input-box" aria-label="Default select example" onChange={(e) => { setStatus(e.target.value) }}>
-                        <option defaultValue={"Select organization type"}>Select organization type</option>
+                        <option defaultValue={"Select organization status"}>Select organization status</option>
                         <option value="true">Active</option>
                         <option value="false">Inactive</option>
                     </select>
@@ -151,8 +162,13 @@ export const Orgprofile = () => {
             </div>
 
             <div className="d-flex justify-content-center">
-                <button type="button" onClick={submitData} className="btn form-button"> Save </button>
-                <span>
+            {
+            store.profile !== undefined ? 
+            <button type="button" onClick={()=>submitData("PUT")} className="btn form-button"> Edit </button> 
+            : 
+            <button type="button" onClick={()=>submitData("POST")} className="btn form-button"> Save </button>
+            }   
+             <span>
                     <button type="button" className="btn delete-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Delete Account
                     </button>
