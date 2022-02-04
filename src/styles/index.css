@@ -187,3 +187,8 @@ h5 {
     display: flex;
     align-items: center;
 }
+
+.d-block {
+    max-height: 800px;
+    max-width: 800;
+}

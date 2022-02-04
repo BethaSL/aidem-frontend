@@ -19,7 +19,7 @@ export const Home = () => {
 				<Carousel fade>
 					<Carousel.Item>
 						<img
-							className="d-block"
+							className="d-block img-fluid mx-auto"
 							src={Foto1}
 							alt="First slide"
 						/>
@@ -32,7 +32,7 @@ export const Home = () => {
 
 					<Carousel.Item>
 						<img
-							className="d-block"
+							className="d-block img-fluid mx-auto"
 							src={Foto2}
 							alt="Second slide"
 						/>
@@ -45,7 +45,7 @@ export const Home = () => {
 
 					<Carousel.Item>
 						<img
-							className="d-block"
+							className="d-block img-fluid mx-auto"
 							src={Foto3}
 							alt="Third slide"
 						/>

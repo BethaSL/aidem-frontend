@@ -42,14 +42,13 @@ export const Orgprofile = () => {
                 account_number: accountnum
             };
             let response;
-            if (method==="POST"){
-                response = await actions.orgProfile(orgProfile); 
+            if (method === "POST") {
+                response = await actions.orgProfile(orgProfile);
             }
-            else{
-                console.log(method)
-                response = await actions.editProfile(orgProfile); 
+            else {
+                response = await actions.editOrgProfile(orgProfile);
             }
-            
+
             if (response.ok) {
                 let responsesGetData = await actions.getData("organizations")
                 if (responsesGetData) {
@@ -57,7 +56,6 @@ export const Orgprofile = () => {
                     setErrorG(false)
                     history.push("/")
                 }
-
             }
         }
         else {
@@ -118,11 +116,11 @@ export const Orgprofile = () => {
                 <label className="form-label" htmlFor="input-address"> Address: </label>
                 <div className="dropdown form-dropdown form-box">
                     <span className="input-box">
-                        <select value={address} onChange={(e) => { setAddress(e.target.value) }} className="form-select input-box"   aria-label="Default select example">
+                        <select value={address} onChange={(e) => { setAddress(e.target.value) }} className="form-select input-box" aria-label="Default select example">
                             <option >Select Country</option>
                             {store.countries.map((city) => {
                                 return (
-                                    <option  key={city}>{city}</option>
+                                    <option key={city}>{city}</option>
                                 )
                             })}
                         </select>
@@ -158,13 +156,13 @@ export const Orgprofile = () => {
             </div>
 
             <div className="d-flex justify-content-center">
-            {
-            store.profile !== undefined ? 
-            <button type="button" onClick={()=>submitData("PUT")} className="btn form-button"> Edit </button> 
-            : 
-            <button type="button" onClick={()=>submitData("POST")} className="btn form-button"> Save </button>
-            }   
-             <span>
+                {
+                    store.profile !== undefined ?
+                        <button type="button" onClick={() => submitData("PUT")} className="btn form-button"> Edit </button>
+                        :
+                        <button type="button" onClick={() => submitData("POST")} className="btn form-button"> Save </button>
+                }
+                <span>
                     <button type="button" className="btn delete-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Delete Account
                     </button>

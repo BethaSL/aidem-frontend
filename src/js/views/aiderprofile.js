@@ -1,31 +1,50 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { Signup } from "../views/signup.js";
 import { useHistory } from "react-router-dom"
 
 export const Aiderprofile = () => {
     const { store, actions } = useContext(Context);
-    const [fullname, setFullname] = useState("");
-    const [phone, setPhone] = useState("");
-    const [contacted, setContacted] = useState(true); //ESTO ES UN INPUT NO UN STRING
-    const [error, setError] = useState(false)
+    const [fullname, setFullname] = useState(store.aiderProfile !== undefined ? store.aiderProfile.full_name : "");
+    const [phone, setPhone] = useState(store.aiderProfile !== undefined ? store.aiderProfile.phone : "");
+    const [contacted, setContacted] = useState(store.aiderProfile !== undefined ? store.aiderProfile.contacted : ""); //ESTO ES UN INPUT NO UN STRING
+    const [error, setErrorA] = useState(false)
     let history = useHistory()
 
-    const submitData = async () => {
+    const submitData = async (method) => {
         if (fullname.trim() != "" || phone.trim() != "") {
             let aiderProfile = {
                 full_name: fullname,
                 phone: phone,
-                contacted: contacted
+                contacted: JSON.parse(contacted)
             };
-            let response = await actions.aiderProfile(aiderProfile);
-            if (response.ok) {
-                setError(false)
-                history.push("/")
+            let response;
+            if (method === "POST") {
+                response = await actions.aiderProfile(aiderProfile);
+            } 
+            else {
+                response = await actions.editAiderProfile(aiderProfile)
+            }
+
+            if (response) {
+                let responsesGetData = await actions.getData("aiders")
+                if (responsesGetData) {
+                    actions.getAiderProfile()
+                    setErrorA(false)
+                    history.push("/")
+                }
+                
             }
         }
         else {
-            setError(true)
+            setErrorA(true)
+        }
+    }
+
+    const deleteProfile = async () => {
+        let response = await actions.delProfile();
+        if (response.ok) {
+            actions.logOut()
+            history.push("/")
         }
     }
 
@@ -48,24 +67,24 @@ export const Aiderprofile = () => {
                 <span> <input className="input-box" required placeholder="Phone number" value={phone} onChange={(e) => { setPhone(e.target.value) }} /> </span>
             </div>
 
-            <div className="form-box">
-                <label className="form-label"> Would you like to be contacted by the Organizations?: </label>
-                <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="true" checked onChange={(e) => { setContacted(e.target.value) }} />
-                    <label className="form-check-label">
-                        Yes
-                    </label>
-                </div>
-                <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="false" onChange={(e) => { setContacted(e.target.value) }} />
-                    <label className="form-check-label">
-                        No
-                    </label>
-                </div>
+            <div className="dropdown form-dropdown form-box">
+                <label className="form-label" htmlFor="dd-user-type" >Would you like to be contacted by the Organizations?: </label>
+                <span className="">
+                    <select className="form-select input-box" aria-label="Default select example" onChange={(e) => { setContacted(e.target.value) }}>
+                        <option defaultValue={"Select organization status"}>Yes/No</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </span>
             </div>
 
             <div className="d-flex justify-content-center">
-                <button type="button" onClick={submitData} className="btn form-button"> Save </button>
+                {
+                    store.aiderProfile !== undefined ?
+                    <button type="button" onClick={() => submitData("PUT")} className="btn form-button"> Edit </button>
+                    :
+                    <button type="button" onClick={() => submitData("POST")} className="btn form-button"> Save </button>
+                }
                 <span>
                     <button type="button" className="btn delete-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Delete Account
@@ -82,7 +101,7 @@ export const Aiderprofile = () => {
                                     Are you sure you want to delete your account?
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" onClick={actions.delProfile} href="/" data-bs-dismiss="modal">Yes</button>
+                                    <button type="button" className="btn btn-secondary" onClick={deleteProfile} href="/" data-bs-dismiss="modal">Yes</button>
                                     <button type="button" className="btn form-button">No</button>
                                 </div>
                             </div>

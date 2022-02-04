@@ -21,7 +21,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			orgbyid: undefined,
 			full_name: localStorage.getItem("full_name") || undefined,
 			organization_name: localStorage.getItem("organization_name") || undefined,
-			profile: JSON.parse(localStorage.getItem("profile")) || undefined
+			profile: JSON.parse(localStorage.getItem("profile")) || undefined,
+			aiderProfile: JSON.parse(localStorage.getItem("aiderProfile")) || undefined
 
 		},
 		actions: {
@@ -64,6 +65,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ ...store, profile: profileinfo[0] })
 					console.log(JSON.stringify(profileinfo[0]));
 					localStorage.setItem("profile", JSON.stringify(profileinfo[0]));
+				}
+			},
+
+			getAiderProfile: async () => {
+				const store = getStore();
+				let aiderinfo = store.aiders.filter((aider) => {
+
+					return aider.user_id == parseInt(store.user_id)
+				})
+				if (aiderinfo[0] != undefined) {
+					setStore({ ...store, aiderProfile: aiderinfo[0] })
+					console.log(JSON.stringify(aiderinfo[0]));
+					localStorage.setItem("AiderProfile", JSON.stringify(aiderinfo[0]));
 				}
 			},
 
@@ -173,7 +187,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			editProfile: async orgProfile => {
+			editOrgProfile: async orgProfile => {
 				const store = getStore();
 				try {
 					let response = await fetch(`${store.urlBase}/orgprofile`, {
@@ -183,6 +197,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"Authorization": `Bearer ${store.token}`
 						},
 						body: JSON.stringify(orgProfile)
+					});
+					//let data = await response.json()
+					if (response.ok) {
+						return response
+					}
+				}
+				catch (error) {
+					console.log("Changes not applied", error)
+				}
+			},
+
+			editAiderProfile: async aiderProfile => {
+				const store = getStore();
+				try {
+					let response = await fetch(`${store.urlBase}/aiderprofile`, {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": `Bearer ${store.token}`
+						},
+						body: JSON.stringify(aiderProfile)
 					});
 					//let data = await response.json()
 					if (response.ok) {
@@ -229,7 +264,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 					//let data = await response.json()
 					if (response.ok) {
-						return response
+						return true
 					}
 				}
 				catch (error) {
@@ -247,6 +282,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("full_name")
 				localStorage.removeItem("user_id")
 				localStorage.removeItem("profile")
+				localStorage.removeItem("aiderProfile")
 				//localStorage.removeItem("")
 
 
